@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>竞品对比：3Chat、来鼓、美洽</title>
+  <style>
+:root {
+  --ink: #1a1a1a;
+  --text: #222;
+  --muted: #5c6770;
+  --line: #d0d7de;
+  --paper: #fff;
+  --bg: #f3f5f7;
+  --brand: #1f4e79;
+  --brand-soft: #e8f0f7;
+  --row: #f7f9fb;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--bg);
+  font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+a { color: var(--brand); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: #163a5c; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+
+.site-header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  color: var(--ink);
+  font-weight: 650;
+  font-size: 15px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.brand:hover { color: var(--brand); }
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 4px;
+  justify-content: flex-end;
+}
+
+.nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.nav a:hover { background: var(--brand-soft); color: var(--brand); }
+
+.nav a.active {
+  background: var(--brand);
+  color: #fff;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 28px 24px 64px;
+}
+
+.jumps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.jump {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 18px 14px;
+  text-decoration: none;
+  color: var(--ink);
+  min-height: 112px;
+}
+
+.jump:hover {
+  border-color: var(--brand);
+  color: var(--ink);
+}
+
+.jump strong {
+  font-size: 18px;
+  font-weight: 650;
+}
+
+.jump span {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.jump-links {
+  margin: auto 0 0;
+  display: flex;
+  gap: 14px;
+  font-size: 13px;
+}
+
+.subnav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.subnav a {
+  text-decoration: none;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 13px;
+  background: var(--paper);
+}
+
+.subnav a.active {
+  color: var(--brand);
+  border-color: var(--brand);
+  background: var(--brand-soft);
+}
+
+article {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 32px 36px 40px;
+}
+
+article h1 {
+  margin: 0 0 12px;
+  font-size: 30px;
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+article h2 {
+  margin: 1.6em 0 0.55em;
+  font-size: 20px;
+  line-height: 1.35;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+article h3 {
+  margin: 1.25em 0 0.35em;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--brand);
+  font-weight: 650;
+}
+
+article p { margin: 0 0 0.9em; }
+
+article ul, article ol { margin: 0 0 1em; padding-left: 1.3em; }
+article li { margin: 0.25em 0; }
+
+article h1 + p,
+article h1 + p + p,
+article h1 + p + p + p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin: 0 0 1.1em;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  line-height: 1.45;
+  min-width: 640px;
+}
+
+article th, article td {
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+
+article th {
+  background: var(--brand);
+  color: #fff;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+article tr:last-child td { border-bottom: 0; }
+article tbody tr:nth-child(even) td { background: var(--row); }
+
+article code {
+  font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  background: var(--row);
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+@media (max-width: 800px) {
+  .site-header-inner { align-items: flex-start; flex-direction: column; gap: 10px; padding: 12px 16px; }
+  .wrap { padding: 18px 14px 48px; }
+  .jumps { grid-template-columns: 1fr; }
+  article { padding: 22px 16px 28px; border-radius: 12px; }
+  article h1 { font-size: 26px; }
+  article table { min-width: 560px; }
+}
+
+.block { scroll-margin-top: 72px; margin-bottom: 28px; }
+.block h1, .block h2, .block h3 { scroll-margin-top: 80px; }
+
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="#compare">艾瓦精品调查</a>
+      <nav class="nav" aria-label="产品">
+        <a href="#compare">对比</a>
+        <a href="#chat">3Chat</a>
+        <a href="#laigu">来鼓</a>
+        <a href="#meiqia">美洽</a>
+      </nav>
+    </div>
+  </header>
+  <div class="wrap">
+<section id="compare" class="block">
+<section class="jumps" aria-label="分篇">
+    <div class="jump">
+      <strong>3Chat</strong>
+      <span>上海纽酷信息科技。官网价格页，按版本卖消息和知识单元。</span>
+      <p class="jump-links"><a href="#chat">竞品调查</a><a href="#chat-notes">功能总结</a></p>
+    </div>
+    <div class="jump">
+      <strong>来鼓 Pro</strong>
+      <span>成都呼声科技。报价单按账号、接待对话和坐席计费。</span>
+      <p class="jump-links"><a href="#laigu">竞品调查</a><a href="#laigu-notes">功能总结</a></p>
+    </div>
+    <div class="jump">
+      <strong>美洽</strong>
+      <span>成都美洽网络科技。销售报价拆成智能体、坐席、企业微信。</span>
+      <p class="jump-links"><a href="#meiqia">竞品调查</a><a href="#meiqia-notes">功能总结</a></p>
+    </div>
+  </section>
+  <article>
+<h1 id="cmp-竞品对比3chat来鼓美洽">竞品对比：3Chat、来鼓、美洽</h1>
+<p>观察日期：2026-10-27<br />
+材料：竞品调查-3Chat、竞品调查-来鼓、竞品调查-美洽<br />
+价格出处：3Chat 官网价格页；来鼓 Pro 报价单；美洽销售报价（2026-10-26）</p>
+<h2 id="cmp-放在一起看">放在一起看</h2>
+<p>三家都在做多平台上的 AI 接待和获客。3Chat 的主体是上海纽酷信息科技有限公司，来鼓是成都呼声科技，美洽是成都美洽网络科技。三份材料的观察日期都是 2026-10-27。价格出处不同：3Chat 是官网价格页，来鼓是报价单，美洽是销售对话里的报价，对方写了「目前价目大致是这样」。</p>
+<p>年费不能直接横比。3Chat 按月卖消息条数和知识单元，渠道再按个加。来鼓按月卖 AI 接待对话的个数，同时卖接入账号和人工坐席。美洽把智能体、人工坐席、企业微信拆开卖，10 万条消息写的是随智能体年费赠送，没有写成每月额度。</p>
+<p>凑一个相近的用法来估一年：要 AI 接待，留 1 个人工坐席，接 1 个企业微信，再要小红书和抖音，加购都按 1 个算。3Chat 得用专业版，因为成长版不含企业微信，一年约 ¥34,300，对应 20,000 条消息/月和 500 个知识单元。来鼓专业版加 1 个企微号约 ¥8,888，对应 1,000 个 AI 对话/月、3 个坐席、5 个非企微账号；小红书若是 KOS 号再加 ¥600。美洽智能体加 1 个坐席加 1 个企微约 ¥10,776，对应赠送 10 万条消息和 1 个坐席。小红书、抖音在美洽的报价里写在坐席开通之后，没有另标按个的价。</p>
+<h2 id="cmp-三家各在卖什么">三家各在卖什么</h2>
+<p>3Chat 官网的句子是「懂你业务的能动性 AI 客服」：对话要推进到留资、预约、转销售、下单或复购。落地被说成一套闭环，搭建助手用几轮问答生成智能体，沙盒里试，确认后再发布。知识、指导、AI 技能是训练材料。价格页按成长、专业、商业、企业分档，企业这一档后来从调查表里删了，下面只保留有标价的三档。</p>
+<p>来鼓把路径说成先发内容，再接咨询，再推成交。内容营销和 GrowX 合作。登录后的后台是客服工作台：首页、对话、顾客、评论、知识、AI 员工、报表和设置。AI 员工的接待顺序写得很死，先判断是不是目标顾客，再要联系方式，然后进入服务。官网的三个 Agent 在后台没有同名入口，内容生产不在这个账号的菜单里。</p>
+<p>美洽从在线客服长出来。官网现在讲小红书、抖音、视频号、快手放在一起，AI 员工回私信和评论，发留资卡、名片卡、交易卡，再把线索推到企业微信、钉钉或飞书。登录后的工作台比这句宽，呼叫、质检、留言、监控、访客都还在。美洽智能体可以创建和测试。留资卡、名片卡和追粉没有展开到配置页。客服机器人、营销机器人、语音机器人和呼叫工作台，这个账号只看到菜单。</p>
+<h2 id="cmp-功能对照">功能对照</h2>
+<div class="table-wrap"><table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>能力</th>
+<th>3Chat</th>
+<th>来鼓</th>
+<th>美洽</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>搭智能体</td>
+<td>问答生成，可看过程和旧版本</td>
+<td>配置 AI 员工的人设、资料和工作范围</td>
+<td>仓库里创建和测试，人设没展开</td>
+</tr>
+<tr>
+<td>发布前试</td>
+<td>沙盒；测试集可批量跑并导出</td>
+<td></td>
+<td>智能体可测试</td>
+</tr>
+<tr>
+<td>话术怎么管</td>
+<td>指导管语气和转人工；固定话术按题作答；AI 技能去办一件事</td>
+<td>话术约束、话术库、快捷回复；技能按筛选、获线、服务往下走</td>
+<td>快捷回复；知识库机器人另有预置、企业、表格三种知识</td>
+</tr>
+<tr>
+<td>人工收件箱</td>
+<td>各渠道一个列表，可按 AI 处理中、等人工、我负责的来看</td>
+<td>各渠道一个列表，可按 AI 接管、待介入、未回复来看</td>
+<td>各渠道一个列表，按我的、同事的、<span class="citation" data-cites="我">@我</span> 来看</td>
+</tr>
+<tr>
+<td>评论</td>
+<td></td>
+<td>小红书、视频号</td>
+<td>小红书，要先授权</td>
+</tr>
+<tr>
+<td>主动找客户</td>
+<td>企微里可定时私聊、群发、朋友圈，新客户打招呼，提到某个词自动回</td>
+<td>抖音按账号做触达；24 小时未留资会追问；企微可群发</td>
+<td>营销机器人按条计；官网讲的追粉没展开</td>
+</tr>
+<tr>
+<td>企微里能做的事</td>
+<td>客户和群、打标签、聊天记录、加好友、群发、朋友圈、营销日历。用前要企业认证</td>
+<td>接入和群发。加好友、朋友圈这套没写</td>
+<td>报价含 30 个群、单聊不限。群发和朋友圈没写</td>
+</tr>
+<tr>
+<td>呼叫、质检、留言</td>
+<td></td>
+<td></td>
+<td>呼叫中心、通话和对话质检、留言、在线监控、网站访客都在</td>
+</tr>
+<tr>
+<td>复盘</td>
+<td>消息统计、用户洞察、测试集</td>
+<td>开口、留资、响应时长，人工 / 智能 / 协作 / 平台分开</td>
+<td>对话和线索报表；智能体看转人工率，没识别的问题可以继续学</td>
+</tr>
+<tr>
+<td>接到自己的系统</td>
+<td>Webhook、API，页面上可加扩展</td>
+<td>Webhook、API</td>
+<td>API、Webhook</td>
+</tr>
+</tbody>
+</table></div>
+<p>3Chat 的重心在把一个智能体做出来、试出来，再接到渠道上，企业微信里的跟进动作写得最全。来鼓的重心在获客：谁是目标客户、有没有留下联系方式、开口和留资怎么样。美洽的重心仍是人工客服工作台，大模型智能体是后来加上的一块。</p>
+<h2 id="cmp-价格">价格</h2>
+<h3 id="cmp-尺子不一样">尺子不一样</h3>
+<p>3Chat 的年费买的是每月消息条数和知识单元。来鼓的年费买的是每月 AI 接待对话个数、不含企微的接入账号、人工坐席。美洽没有套餐档，智能体、坐席、企微各算各的。一个「对话」里面可以有很多条消息，所以来鼓的 1,000 个对话和 3Chat 的 6,000 条消息不是同一个数。</p>
+<h3 id="cmp-chat">3Chat</h3>
+<p>年付，页面写明年付节省 16%。月付价这次没有切出来。企业版已从调查表删除。</p>
+<div class="table-wrap"><table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>版本</th>
+<th>年费</th>
+<th>月消息</th>
+<th>知识单元</th>
+<th>卡片上的卖点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>成长版</td>
+<td>¥9,800</td>
+<td>6,000</td>
+<td>50</td>
+<td>抖音、小红书公域获客；无限账号；AI 技能；MCP</td>
+</tr>
+<tr>
+<td>专业版</td>
+<td>¥29,800</td>
+<td>20,000</td>
+<td>500</td>
+<td>微信/企微；AI 介入策略；品牌自定义；16 小时交付</td>
+</tr>
+<tr>
+<td>商业版</td>
+<td>¥59,800</td>
+<td>50,000</td>
+<td>5,000</td>
+<td>数据永久保留；联网检索和文件识别；40 小时交付；专属服务群</td>
+</tr>
+</tbody>
+</table></div>
+<p>对照表和卡片不是同一套说法，下面以对照表为准。官网插件、邮件、微信客服、微信小店、微信服务号、WhatsApp、Instagram、Facebook，三档都包含。小红书和抖音私信（Beta）三档都要另付 ¥1,500/年/个。企业微信成长版不包含，专业版和商业版 ¥1,500/年/个。个人号三档都是 ¥98/月/个。专业版才有 AI 介入策略和图片识别，数据保留从 6 个月变成 12 个月。商业版才有联网检索、文件识别和永久保存。</p>
+<h3 id="cmp-来鼓">来鼓</h3>
+<p>报价单标题是「来鼓 Pro 报价单」。四档按年收费，企业版标了推荐。旗舰版各项都是联系销售。知识单元这张单上没有。接入账号一栏写明不包含企业微信。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>版本</th>
+<th>年费</th>
+<th>接入账号（不含企微）</th>
+<th>AI 接待对话</th>
+<th>人工坐席</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>入门版</td>
+<td>¥1,688/年</td>
+<td>1</td>
+<td>200 个/月</td>
+<td>1</td>
+</tr>
+<tr>
+<td>专业版</td>
+<td>¥6,888/年</td>
+<td>5</td>
+<td>1,000 个/月</td>
+<td>3</td>
+</tr>
+<tr>
+<td>企业版（推荐）</td>
+<td>¥16,888/年</td>
+<td>20</td>
+<td>3,600 个/月</td>
+<td>10</td>
+</tr>
+<tr>
+<td>旗舰版</td>
+<td>联系销售</td>
+<td>联系销售</td>
+<td>联系销售</td>
+<td>联系销售</td>
+</tr>
+</tbody>
+</table></div>
+<p>增购按列分开卖。企微号 ¥2,000/个/年，通用账号 ¥1,000/个/年，小红书 KOS 号 ¥600/个/年。AI 接待对话另买：1,000 条 ¥600，6,000 条 ¥3,000，20,000 条 ¥8,000，没写按月还是按年。人工坐席 ¥600/个/年。报价单没有把普通抖音号、普通小红书号单列成增购。</p>
+<h3 id="cmp-美洽">美洽</h3>
+<p>公开价目表没打开。下面是 2026-10-26 服务经理顺着企业微信报的价。知识单元、消息按月还是按年重置，没报，继续空着。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>价格</th>
+<th>包含</th>
+<th>知识单元</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>智能体</td>
+<td>¥6,888/年</td>
+<td>赠送 10 万条消息</td>
+<td></td>
+</tr>
+<tr>
+<td>人工坐席</td>
+<td>¥1,888/坐席/年</td>
+<td>开通后可增加渠道</td>
+<td></td>
+</tr>
+<tr>
+<td>企业微信</td>
+<td>¥2,000/年/个</td>
+<td>30 个企微群，单聊不限</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>开通人工坐席后可以增加：聊天链接、网页插件、SDK、短信、邮件、微信公众号、微信小程序、微信客服、微博、抖音、小红书、抖音来客广告、飞书、快手私信，以及 CRM、广告平台和第三方应用。企业微信仍按 ¥2,000/年/个另计。智能体可单独试用 7 天再绑企微。企微走服务商，试用 3 天。</p>
+<h3 id="cmp-凑成同一件事">凑成同一件事</h3>
+<p>算法：AI 接待要开着，人工至少留 1 个坐席，企业微信 1 个，小红书 1 个，抖音 1 个。3Chat 取专业版，成长版不含企微。来鼓取专业版，5 个非企微账号够放普通小红书和抖音，这两项不另加价；KOS 单独加。美洽取智能体、1 个坐席、1 个企微，小红书和抖音按「坐席开通后可增加」处理，报价没写按个加价，表里不另加。</p>
+<div class="table-wrap"><table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th></th>
+<th>3Chat</th>
+<th>来鼓</th>
+<th>美洽</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>怎么配</td>
+<td>专业版 + 企微 + 小红书 + 抖音</td>
+<td>专业版 + 1 个企微号</td>
+<td>智能体 + 1 坐席 + 1 企微</td>
+</tr>
+<tr>
+<td>一年</td>
+<td>¥34,300</td>
+<td>¥8,888</td>
+<td>¥10,776</td>
+</tr>
+<tr>
+<td>小红书换成 KOS</td>
+<td>仍是 ¥1,500/年/个</td>
+<td>再加 ¥600，合计 ¥9,488</td>
+<td></td>
+</tr>
+<tr>
+<td>用量</td>
+<td>20,000 条消息/月，知识单元 500</td>
+<td>1,000 个 AI 对话/月，坐席 3，非企微账号 5</td>
+<td>赠送 10 万条消息，周期未说明；坐席 1</td>
+</tr>
+<tr>
+<td>抖音</td>
+<td>¥1,500/年/个，标着 Beta</td>
+<td>报价单未单列</td>
+<td>写在坐席渠道里，未标按个的价</td>
+</tr>
+</tbody>
+</table></div>
+<p>只看公域、先不接企业微信时，3Chat 成长版加 1 个小红书和 1 个抖音是 ¥12,800/年，6,000 条消息/月，50 个知识单元。来鼓入门版是 ¥1,688/年，只有 1 个非企微账号、200 个 AI 对话/月、1 个坐席，小红书和抖音不能同时放。美洽若只要智能体、不要坐席，是 ¥6,888/年，渠道名单写在坐席上，不买坐席能否接入小红书和抖音，报价没说。</p>
+<p>企业微信的单价三家接近。3Chat ¥1,500/年/个，材料没写包含多少群。来鼓 ¥2,000/个/年，卖的是企微号。美洽 ¥2,000/年/个，写明 30 个群、单聊不限。3Chat 另有个人号 ¥98/月/个。来鼓报价单和美洽这次的报价都没有单列个人微信。</p>
+<p>还空着的数：3Chat 的月付价；来鼓的知识单元、旗舰版价格、AI 消息条数、对话增购包按月还是按年；美洽的知识单元、10 万条消息的周期、公开价目表，以及渠道要不要按账号另收费。</p>
+  </article>
+</section>
+<section id="chat" class="block">
+<nav class="subnav" aria-label="本篇">
+    <a href="#chat" class="active">竞品调查</a>
+    <a href="#chat-notes">功能总结</a>
+  </nav>
+  <article>
+<h1 id="chat-竞品调查3chat.ai">竞品调查：3Chat.ai</h1>
+<p>观察日期：2026-10-27<br />
+主体：上海纽酷信息科技有限公司<br />
+控制台：<a href="https://app.3chatai.cn" target="_blank" rel="noopener">app.3chatai.cn</a><br />
+价格：<a href="https://www.3chatai.cn/price" target="_blank" rel="noopener">www.3chatai.cn/price</a></p>
+<h2 id="chat-它在卖什么">它在卖什么</h2>
+<p>官网的句子是「懂你业务的能动性 AI 客服」：普通客服只求答完问题，3Chat 要把对话推进到留资、预约、转销售、下单或复购。售前走销售 SOP，售后按业务目标做操作。</p>
+<p>落地路径也被说成一套闭环：Builder 用几轮问答生成第一版智能体，沙盒里试，确认后再发布。知识、指导、AI 技能是训练材料。价格页再把这套东西切成成长、专业、商业、企业四档。</p>
+<p>这次试用对得上的，是 Builder。对不上或没看到的，是「一人一策」进豆包、千问、WorkBuddy，以及名叫 Evaluation 的复盘产品。后台里接近复盘的是测试集、用户洞察和消息统计。</p>
+<h2 id="chat-产品功能">产品功能</h2>
+<h3 id="chat-搭建助手">搭建助手</h3>
+<p>系统用对话问清楚行业、想达成的目标、AI 扮演谁、卖什么、事情按什么步骤办。也可以直接用现成模板。生成后能看到过程和以前的版本。发布并接上渠道后，开始接待客户。</p>
+<h3 id="chat-指导">指导</h3>
+<p>用平常的话规定 AI 的语气、回复长短、身份、说话习惯、必须遵守的规矩，以及什么时候交给人工。可以套模板，也可以让系统帮忙写和改。改完要点发布，正式对话才会更新。</p>
+<h3 id="chat-固定话术">固定话术</h3>
+<p>有些问题不让 AI 自由发挥。客户一问到，就按事先写好的答案回复。</p>
+<h3 id="chat-ai-技能">AI 技能</h3>
+<p>遇到特定情况时，让 AI 去办一件具体的事，而不只是回答问题。</p>
+<h3 id="chat-知识库">知识库</h3>
+<p>存放公司、产品和业务说明，并设置 AI 怎么从里面查找答案。</p>
+<h3 id="chat-沙盒">沙盒</h3>
+<p>自己先跟 AI 聊几句，看回答是否合适，再决定要不要发布。</p>
+<h3 id="chat-测试集">测试集</h3>
+<p>一次放进一批问题，查看回答情况，并把结果导出。</p>
+<h3 id="chat-基础配置">基础配置</h3>
+<p>设置 AI 的名字、头像和语言，回复要不要拆成几条，多久没有说话就结束对话，转给人工时通知谁。</p>
+<h3 id="chat-联系人群组">联系人群组</h3>
+<p>规定哪些客户由 AI 自动回复，哪些客户不回复。</p>
+<h3 id="chat-收件箱">收件箱</h3>
+<p>各个渠道的消息进同一个列表。可以按全部、AI 正在处理、等人工接手、我负责的、试聊、已关闭查看，也可以按渠道筛选。</p>
+<h3 id="chat-联系人">联系人</h3>
+<p>客户和群分开管理。</p>
+<h3 id="chat-渠道">渠道</h3>
+<p>把 AI 接到客户出现的地方，包括官网、邮件、微信客服、微信服务号、微信小店、企业微信、WhatsApp、飞书、钉钉、小红书、抖音、TikTok、Facebook、Instagram 等。官网聊天窗可以改颜色、欢迎语、留联系方式的方式和语言，把一段代码贴进网站就能用。其他渠道按各自的步骤接入。</p>
+<h3 id="chat-社交平台运营">社交平台运营</h3>
+<p>在企业微信里跟进客户：查看客户和群、打标签、翻聊天记录；用接口、Excel、群成员或名片加好友；给个人或群发消息；按时间做私聊、群聊、朋友圈和按标签的跟进；新客户自动打招呼，提到某个词自动回复。任务和营销日历用来安排这些动作，图片和话术放在素材库。使用前要先完成企业认证。</p>
+<h3 id="chat-微信互通">微信互通</h3>
+<p>接入个人微信、微信客服、微信服务号、微信小店，并绑定企业微信。</p>
+<h3 id="chat-消息统计">消息统计</h3>
+<p>查看消息有多少、从哪个渠道来、AI 回复了多少。</p>
+<h3 id="chat-用户洞察">用户洞察</h3>
+<p>查看触达了多少人、有没有转化、大家常问什么、客户大致是什么样，以及可以怎么改进。</p>
+<h3 id="chat-开放平台">开放平台</h3>
+<p>把客户消息推到自己的系统，或用接口读取联系人、消息、对话和群。可以接外部工具，并留下每次调用的记录，也可以在页面上加自己的扩展。</p>
+<h2 id="chat-价格才是产品边界">价格才是产品边界</h2>
+<p>年付四档，页面写明年付节省 16%。月付价这次没有切出来。</p>
+<div class="table-wrap"><table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>版本</th>
+<th>年费</th>
+<th>月消息</th>
+<th>知识单元</th>
+<th>卡片上的卖点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>成长版</td>
+<td>¥9,800</td>
+<td>6,000</td>
+<td>50</td>
+<td>抖音、小红书公域获客；无限账号；AI 技能；MCP</td>
+</tr>
+<tr>
+<td>专业版</td>
+<td>¥29,800</td>
+<td>20,000</td>
+<td>500</td>
+<td>微信/企微；AI 介入策略；品牌自定义；16 小时交付</td>
+</tr>
+<tr>
+<td>商业版</td>
+<td>¥59,800</td>
+<td>50,000</td>
+<td>5,000</td>
+<td>数据永久保留；联网检索和文件识别；40 小时交付；专属服务群</td>
+</tr>
+</tbody>
+</table></div>
+<p>真正拉开档位的不是「有没有智能体」。收件箱、沙盒、固定话术、Webhook、API、多语言、MCP，成长版就有，而且账号授权、测试集、AI 技能、MCP 都写着不限。</p>
+<p>拉开档位的是这几件事：</p>
+<ul>
+<li>专业版才有 AI 介入策略和图片识别，数据从保存 6 个月变成 12 个月，聊天脚标可以去掉 3Chat.ai，售后从社区论坛变成客户成功，并送 16 小时交付。</li>
+<li>商业版才有联网检索、文件识别、自定义流量包和永久保存，交付变成 40 小时和专属服务群。</li>
+<li>成长版的自定义应用最多 3 个，再往上是包含。</li>
+</ul>
+<p>渠道价和卡片文案不是同一套说法，调查时要以对照表为准：</p>
+<ul>
+<li>官网插件、邮件、微信客服、微信小店、微信服务号、WhatsApp、Instagram、Facebook，三个版本都包含。</li>
+<li>小红书和抖音私信（Beta）三个版本都要另付 ¥1,500/年/个。成长版卡片写「官网/抖音/小红书」，并不等于这两条渠道含在 ¥9,800 里。</li>
+<li>企业微信成长版不包含，专业版和商业版 ¥1,500/年/个。这才是「私域版」和「公域版」的付费墙。</li>
+<li>个人号三个版本都是 ¥98/月/个。</li>
+<li>WhatsApp 在对照表里三个版本都包含，但专业版卡片把它写成本档卖点。</li>
+</ul>
+<p>一个只买成长版、再接 1 个小红书和 1 个抖音的团队，年费不是 9,800，而是 12,800，抖音还标着 Beta。专业版如果再加企业微信账号，按个继续加 1,500。</p>
+  </article>
+</section>
+<section id="chat-notes" class="block">
+<nav class="subnav" aria-label="本篇">
+    <a href="#chat">竞品调查</a>
+    <a href="#chat-notes" class="active">功能总结</a>
+  </nav>
+  <article>
+<h1 id="chat-notes-chat.ai-功能总结">3Chat.ai 功能总结</h1>
+<p>观察日期：2026-10-27<br />
+产品控制台：<a href="https://app.3chatai.cn" target="_blank" rel="noopener">https://app.3chatai.cn</a><br />
+本次进入的页面：<a href="https://app.3chatai.cn/embedded-app/subapp?url=/butler/sandbox" target="_blank" rel="noopener">沙盒</a></p>
+<p>3Chat.ai 是成交导向的 AI 客服智能体。登录后的后台按「搭建智能体 → 训练 → 测试 → 接渠道 → 接待和触达」组织，不是单一聊天窗口。侧边栏很长，多数页面嵌在 <code>/embedded-app/subapp</code> 里。</p>
+<p>本次空间为「广东青年生产力促进中心的空间」，套餐是 <strong>3Chat 成长版</strong>（订阅编号 3Chat-Growth），使用期限 2026-10-26 至 2026-11-10。席位 1/5，订阅消息 0/6,000，知识单元 1/50。侧边栏有升级到专业版的入口，标价 ¥29,800/年。</p>
+<p>搭建助手里已经生成并发布过一版智能体，定位是服务已报名学员和家长的课务、学习跟进，不确定的问题转人工，不包含每天主动外呼。沙盒里的客服自称为「3Chat_知识建筑师」。实时聊天渠道已出现在收件箱，微信小店页面显示已接入。企业微信相关菜单在验证企业主体之前打不开。</p>
+<h2 id="chat-notes-登录后的菜单">登录后的菜单</h2>
+<div class="table-wrap"><table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>分组</th>
+<th>菜单</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3Chat Agent</td>
+<td>搭建助手、消息统计、用户洞察</td>
+<td>对话式生成智能体，以及用量和用户分析</td>
+</tr>
+<tr>
+<td>训练</td>
+<td>知识库、指导、固定话术、AI 技能</td>
+<td>给智能体知识、人设、标准答案和可执行技能</td>
+</tr>
+<tr>
+<td>测试</td>
+<td>沙盒、测试集</td>
+<td>单条试聊和批量评测</td>
+</tr>
+<tr>
+<td>MCP</td>
+<td>工具调用、访问授权、工具调用日志</td>
+<td>接外部系统和调用记录</td>
+</tr>
+<tr>
+<td>配置</td>
+<td>基础配置、联系人群组</td>
+<td>名称、会话策略、按人群决定是否回复</td>
+</tr>
+<tr>
+<td>收件箱</td>
+<td>收件箱、消息历史、消息通知</td>
+<td>真实和测试对话</td>
+</tr>
+<tr>
+<td>联系人</td>
+<td>联系人、群聊群组</td>
+<td>客户和群</td>
+</tr>
+<tr>
+<td>渠道</td>
+<td>渠道总览，以及官网、邮箱、小红书、WhatsApp、Manychat 等</td>
+<td>把智能体接到具体触点</td>
+</tr>
+<tr>
+<td>社交平台运营</td>
+<td>连接、客户接待、标签、加好友、群发、SOP、朋友圈、素材</td>
+<td>企业微信侧的运营动作，需先验证企业</td>
+</tr>
+<tr>
+<td>微信互通</td>
+<td>个人号、微信客服、服务号、小店、绑定企业微信</td>
+<td>微信体系接入</td>
+</tr>
+<tr>
+<td>设置</td>
+<td>空间信息、成员、访问日志、账单、我的订阅</td>
+<td>空间和套餐</td>
+</tr>
+<tr>
+<td>开放平台</td>
+<td>页面扩展、Webhook、API、对象与流程、域配置</td>
+<td>二次开发和数据对象</td>
+</tr>
+</tbody>
+</table></div>
+<p>顶部还有搜索（⌘K）、订阅提醒、帮助和社区。</p>
+<h2 id="chat-notes-chat-搭建助手">3Chat 搭建助手</h2>
+<p>路径 <code>/butler/agent/builder</code>。用对话收集五类信息后生成第一版智能体：行业、业务目标、角色定位、产品/服务、核心工作流。行业选项包括科技、本地生活服务、教育培训、电商与零售、其他。业务目标可多选，例如接待新客并判断购买意向、引导下单预约或留资、识别高意向后转人工。也可以用产品模板，或直接描述业务后生成。</p>
+<p>生成结果可以预览、看执行明细和版本记录，并给出企业微信、小红书、抖音等渠道入口，以及「打开沙盒试聊」。页面说明：发布到正式环境后，还要接入渠道才能接待真实客户。</p>
+<h2 id="chat-notes-效果">效果</h2>
+<p><strong>消息统计</strong>（<code>/butler/dashboard</code>）看消息量、趋势、渠道占比和智能体响应率，拆成总消息、AI 对话消息、人工对话消息。渠道筛选项包括企业微信、微信客服、WhatsApp、TikTok、小程序、抖音、钉钉、小红书、邮箱、实时聊天、微信公众号/服务号、飞书、开放 API、微信小店、Discord、Shopify、Meta、Instagram、沙盒、个人号、Builder。当前各项为 0。</p>
+<p><strong>用户洞察</strong>（<code>/butler/data-insights</code>）按时间看触达用户总量、渠道来源、触达趋势、转化、常问话题、用户画像和优化建议，可订阅推送和分享。页面写明初期数据少时分析会偏。当前无数据。</p>
+<h2 id="chat-notes-训练">训练</h2>
+<p><strong>知识库</strong>（<code>/user-hub/multiview/butlerKnowledge</code>）添加知识内容，可设置检索策略。搭建助手提示配套知识库可以在后台准备，不挡住试聊。</p>
+<p><strong>指导</strong>（<code>/butler/prompt</code>）用自然语言规定智能体怎么说话。分基本设置、角色、沟通风格、条件遵循、转人工条件。语气可选友好、自然、实际、专业、幽默或自定义；回复长度可选简洁、标准、充分。支持模板、智能生成、智能优化，改完后点发布同步。本空间最近同步时间是 2026-10-26 11:54。已写好的条件遵循把来意分成接待答疑、课务服务、学习跟进、权益答疑，并写明不推动续费或成交。</p>
+<p><strong>固定话术</strong>优先于模型自由回复：客户问题匹配到相似问法时，先用写死的答案。当前列表为空。</p>
+<p><strong>AI 技能</strong>是可添加的任务。从菜单打开时列表有 6 条。指导里点名使用的技能包括接待答疑、课务服务、学习跟进、权益答疑。</p>
+<h2 id="chat-notes-测试">测试</h2>
+<p><strong>沙盒</strong>（<code>/butler/sandbox</code>）是不影响正式客户的试聊窗口，也是这次打开的地址。说明文字写着：要改进效果，去改指导、知识库、固定话术；场景复杂再去改 AI 技能。页面可以分享给客户或协作方收集反馈。当前沙盒会以网站客服的形式打招呼。</p>
+<p><strong>测试集</strong>（<code>/butler/batchTest</code>）用来批量评估回复。可以上传文件，一次最多 50 条问题，或逐条粘贴。测完可看回答并导出报告。当前还没有题目。</p>
+<h2 id="chat-notes-基础配置和人群">基础配置和人群</h2>
+<p><strong>基础配置</strong>（<code>/butler/agent/config</code>）分基本信息、聊天会话、电子邮件、记忆。</p>
+<ul>
+<li>基本信息：智能体 logo、名称、默认语言来源（优先联系人常用语言，或用工作区默认语言）、默认语言和服务语言（简体中文、英语）。</li>
+<li>页面说明里还包含智能分段回复、自动关闭会话、转人工通知接收人邮箱。</li>
+</ul>
+<p><strong>联系人群组</strong>用来把客户分组，从而控制 3Chat Agent 回复哪些人。这是按人群开关自动回复的入口。当前没有人群组。</p>
+<h2 id="chat-notes-收件箱和联系人">收件箱和联系人</h2>
+<p>收件箱（<code>/butler/inbox</code>）分组为：全部消息、AI 处理中、待人工接入、我负责的、测试、已关闭。可按渠道筛选，也能建自定义视图。当前没有待处理对话。实时聊天已经出现在渠道列表里。</p>
+<p>联系人支持筛选、排序、设置列和导出。另有群聊群组列表。两边当前都没有业务数据。</p>
+<h2 id="chat-notes-渠道">渠道</h2>
+<p>渠道总览把可接入的触点分成几类，可从总览跳到配置页，消息进收件箱：</p>
+<ul>
+<li>企业微信、小红书、抖音</li>
+<li>官网：自定义官网、Shopify、Shopline</li>
+<li>即时通讯：微信、微信客服、微信服务号、微信小店、企业微信、WhatsApp、飞书、钉钉</li>
+<li>社交平台：小红书、抖音、TikTok、Facebook、Instagram、Telegram、Discord、LINE</li>
+<li>邮箱：网易邮箱、QQ 邮箱、飞书邮箱、企微邮箱、Amazon 等</li>
+</ul>
+<p>这次点开的配置页：</p>
+<ul>
+<li><strong>外观设置</strong>：主题色、经典/柔和消息背景、品牌 logo、页面加载时是否自动弹出、品牌名称、描述、问候消息、对话菜单，以及留资信息和多语言。右侧有聊天窗预览。</li>
+<li><strong>官网安装</strong>：复制一段脚本，贴到网站 <code>&lt;/body&gt;</code> 前，再回网站检查组件是否出现。</li>
+<li><strong>邮箱</strong>：绑定邮箱统一收发。另有忽略邮箱设置，用来让 AI 不处理指定地址。</li>
+<li><strong>小红书</strong>：接企业号，读取粉丝私信并自动回复。</li>
+<li><strong>WhatsApp</strong>：通过 YCloud 注册 WhatsApp Business 账号和业务号码，不是个人 WhatsApp。</li>
+<li><strong>Manychat</strong>：按步骤到 ManyChat 的 Settings → API 完成对接。</li>
+<li><strong>微信客服</strong>：企业微信管理员扫码授权，再到「应用管理 → 微信客服 → 授权第三方应用」授权客服账号。</li>
+<li><strong>微信服务号/公众号</strong>：管理员扫码授权后检查连接。</li>
+<li><strong>微信小店</strong>：以自研客服方式接入，可改智能体行为和风格。本空间页面显示已经接入。</li>
+</ul>
+<h2 id="chat-notes-社交平台运营">社交平台运营</h2>
+<p>这一组和「绑定企业微信」下的菜单，打开后都要求先验证企业主体：填写与工商登记一致的公司名称，以及接收通知的邮箱。验证前看不到具体操作页。菜单本身已经把能力列全：</p>
+<ul>
+<li>连接社交平台、回调事件、接口访问授权、IM 回复策略（决定某个企业微信成员账号要不要交给 3Chat）</li>
+<li>客户接待工作台、聊天历史、客户列表、群聊列表</li>
+<li>企业标签、自定义标签</li>
+<li>加好友：API、Excel、群聊、名片，以及加好友设置</li>
+<li>消息触达：私聊群发和群聊群发各有高级版、极速版；私聊 SOP、群聊 SOP、朋友圈、朋友圈 SOP、标签 SOP、新客户应答、关键词回复、SOP 模版、企业任务、营销日历</li>
+<li>素材库</li>
+</ul>
+<h2 id="chat-notes-设置">设置</h2>
+<ul>
+<li>空间信息：名称、行业类别、地址、电话、联系人、银行账号等。</li>
+<li>成员：邀请、导入、导出。当前 1 人。</li>
+<li>访问日志：当前 4 条。</li>
+<li>账单：当前 8 条。</li>
+<li>我的订阅：套餐期限、席位、消息量和知识单元，可升级或增加席位。</li>
+</ul>
+<h2 id="chat-notes-开放平台">开放平台</h2>
+<ul>
+<li>页面扩展 / 页面插件：配置应用名称、状态、顶部栏、侧边栏、导航栏、移动端和可见范围。当前没有应用。</li>
+<li>Webhook 与 Webhook 日志。</li>
+<li>API 认证、API 调用日志。侧边栏另有三份外部文档：3Chat API、社交平台 API、微信互通 API。</li>
+<li>对象与流程、3Chat 域配置。数据对象包括联系人、消息、对话、群聊。联系人字段可见姓名、邮箱、渠道信息、电话号码、常用语言、来源渠道。</li>
+</ul>
+<p>工具调用（MCP）用来登记外部工具；访问授权用来配置认证，让智能体访问外部系统；工具调用日志记录工具名称、失败类型、调用时间、耗时、请求地址和错误信息。三处当前都没有数据。</p>
+<h2 id="chat-notes-官网对外讲的能力">官网对外讲的能力</h2>
+<p>官网把产品说成「能动性 AI 客服」：售前按销售 SOP 做多轮引导和留资，售后按业务目标执行操作。和这次后台的对应关系：</p>
+<div class="table-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>官网说法</th>
+<th>后台里能对上的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Builder 用对话搭出第一版智能体</td>
+<td>3Chat 搭建助手</td>
+</tr>
+<tr>
+<td>知识、指导、AI 任务、沙盒、发布</td>
+<td>知识库、指导、AI 技能、沙盒；指导页有发布</td>
+</tr>
+<tr>
+<td>按联系人条件决定是否自动回复</td>
+<td>联系人群组；官网称这是专业版能力</td>
+</tr>
+<tr>
+<td>Evaluation 复盘流失原因</td>
+<td>这次菜单里没有单独的 Evaluation。接近的是测试集、用户洞察、消息统计</td>
+</tr>
+<tr>
+<td>在豆包、千问、WorkBuddy 里做一人一策</td>
+<td>本次菜单里没有看到</td>
+</tr>
+</tbody>
+</table></div>
+<p>价格和版本差异以官网 <a href="https://www.3chatai.cn/price" target="_blank" rel="noopener">价格页</a> 为准，见下一节。本次登录看到的消息量 6,000、知识单元 50，与成长版一致。</p>
+<h2 id="chat-notes-价格与功能">价格与功能</h2>
+<p>来源：<a href="https://www.3chatai.cn/price" target="_blank" rel="noopener">https://www.3chatai.cn/price</a>。页面默认展示年付，标注年付节省 16%。国外渠道如 Discord、Line、Gmail 指向 3Chat 国际版，不在这张表里。</p>
+<div class="table-wrap"><table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>版本</th>
+<th>年费</th>
+<th>适合</th>
+<th>卡片上写明的差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>成长版</td>
+<td>¥9,800</td>
+<td>个人工作室或初创品牌，用抖音、小红书做公域获客</td>
+<td>月消息 6,000，无限账号，AI 技能，50 知识单元，MCP，官网/抖音/小红书</td>
+</tr>
+<tr>
+<td>专业版</td>
+<td>¥29,800</td>
+<td>成长期私域团队，要打通微信/企微，并做品牌规范化</td>
+<td>含成长版，月消息 20,000，500 知识单元，AI 介入策略，品牌自定义，微信私域/WhatsApp，上线配置指导</td>
+</tr>
+<tr>
+<td>商业版</td>
+<td>¥59,800</td>
+<td>中型企业，需要专家交付，并长期留下客户数据</td>
+<td>含专业版，月消息 50,000，5,000 知识单元，永久消息保留，自定义流量包，海外社媒，40 工时指导</td>
+</tr>
+<tr>
+<td>企业版</td>
+<td>单独报价</td>
+<td>集团或合规企业，要求私有化、SSO 和 SLA</td>
+<td>含商业版，月消息 100,000+，无限知识库，个性化流量和指导，99.9% SLA</td>
+</tr>
+</tbody>
+</table></div>
+<p>下面是价格页「完整功能对比」里成长版、专业版、商业版三列。企业版没有进这张表。</p>
+<p><strong>基础能力</strong></p>
+<div class="table-wrap"><table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>功能</th>
+<th>成长版</th>
+<th>专业版</th>
+<th>商业版</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>聚合收件箱、智能体、访客列表、消息统计、固定话术、沙盒</td>
+<td>有</td>
+<td>有</td>
+<td>有</td>
+</tr>
+<tr>
+<td>账号授权、测试集、AI 技能、MCP</td>
+<td>不限</td>
+<td>不限</td>
+<td>不限</td>
+</tr>
+<tr>
+<td>知识单元</td>
+<td>50</td>
+<td>500</td>
+<td>5,000</td>
+</tr>
+<tr>
+<td>Webhook、API 访问、用户与组织管理、多语言</td>
+<td>有</td>
+<td>有</td>
+<td>有</td>
+</tr>
+<tr>
+<td>AI 介入策略、图片识别</td>
+<td>无</td>
+<td>有</td>
+<td>有</td>
+</tr>
+<tr>
+<td>数据保存时长</td>
+<td>6 个月</td>
+<td>12 个月</td>
+<td>不限</td>
+</tr>
+<tr>
+<td>联网检索、文件识别</td>
+<td>无</td>
+<td>无</td>
+<td>有</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>进阶与个性化</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>成长版</th>
+<th>专业版</th>
+<th>商业版</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>自定义应用开发</td>
+<td>最多 3 个</td>
+<td>有</td>
+<td>有</td>
+</tr>
+<tr>
+<td>自定义流量包</td>
+<td>无</td>
+<td>无</td>
+<td>有</td>
+</tr>
+<tr>
+<td>智能体头像</td>
+<td>有</td>
+<td>有</td>
+<td>有</td>
+</tr>
+<tr>
+<td>空间品牌</td>
+<td>自定义</td>
+<td>自定义</td>
+<td>自定义</td>
+</tr>
+<tr>
+<td>聊天脚标</td>
+<td>3Chat.ai</td>
+<td>自定义</td>
+<td>自定义</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>渠道</strong></p>
+<p>官网插件、邮件、微信客服、微信小店、微信服务号、WhatsApp、Instagram、Facebook 三个版本都包含。电商平台支持写的是 3ChatClaw，三个版本都有。</p>
+<p>按个另计的渠道：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>渠道</th>
+<th>成长版</th>
+<th>专业版</th>
+<th>商业版</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>个人号（个 V 号）</td>
+<td>¥98/月/个</td>
+<td>¥98/月/个</td>
+<td>¥98/月/个</td>
+</tr>
+<tr>
+<td>企业微信</td>
+<td>不包含</td>
+<td>¥1,500/年/个</td>
+<td>¥1,500/年/个</td>
+</tr>
+<tr>
+<td>小红书</td>
+<td>¥1,500/年/个</td>
+<td>¥1,500/年/个</td>
+<td>¥1,500/年/个</td>
+</tr>
+<tr>
+<td>抖音私信（Beta）</td>
+<td>¥1,500/年/个</td>
+<td>¥1,500/年/个</td>
+<td>¥1,500/年/个</td>
+</tr>
+</tbody>
+</table></div>
+<p>卡片上成长版写「官网/抖音/小红书」，专业版写「微信私域/WhatsApp」。对照表里，小红书和抖音私信是各版本都要按账号加价，WhatsApp 则三个版本都包含，企业微信从专业版起按账号加价。</p>
+<p><strong>服务</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>成长版</th>
+<th>专业版</th>
+<th>商业版</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>售后支持</td>
+<td>社区论坛</td>
+<td>客户成功</td>
+<td>专属服务群</td>
+</tr>
+<tr>
+<td>首次购买赠送交付工时</td>
+<td>无</td>
+<td>16 小时</td>
+<td>40 小时</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="chat-notes-本次没看全的内容">本次没看全的内容</h2>
+<p>企业微信运营和绑定企业微信的页面停在主体验证，群发、SOP、朋友圈和加好友只看到菜单，没有看到配置表单。AI 技能列表有 6 条，直接打开时表格没有渲染出名称。消息历史、个人号页面这次没有加载出正文。收件箱没有真实对话，所以意向判断、转人工和留资的实际效果没法从会话里核对。</p>
+<h2 id="chat-notes-参考">参考</h2>
+<ul>
+<li><a href="https://www.3chatai.cn/" target="_blank" rel="noopener">3Chat.ai 官网</a></li>
+<li><a href="https://www.3chatai.cn/price" target="_blank" rel="noopener">价格与功能对比</a></li>
+<li><a href="https://group.3chatai.cn/t/topic/92" target="_blank" rel="noopener">新手指南</a></li>
+<li><a href="https://group.3chatai.cn/t/topic/203" target="_blank" rel="noopener">指导功能说明</a></li>
+<li><a href="https://group.3chatai.cn/t/topic/85" target="_blank" rel="noopener">发布与部署说明</a></li>
+<li><a href="https://group.3chatai.cn/t/topic/27/1" target="_blank" rel="noopener">渠道安装</a></li>
+</ul>
+  </article>
+</section>
+<section id="laigu" class="block">
+<nav class="subnav" aria-label="本篇">
+    <a href="#laigu" class="active">竞品调查</a>
+    <a href="#laigu-notes">功能总结</a>
+  </nav>
+  <article>
+<h1 id="laigu-竞品调查来鼓-pro">竞品调查：来鼓 Pro</h1>
+<p>观察日期：2026-10-27<br />
+主体：成都呼声科技<br />
+控制台：pro.laigu.com<br />
+价格：来鼓 Pro 报价单（www.laigu.com）</p>
+<h2 id="laigu-它在卖什么">它在卖什么</h2>
+<p>来鼓把 AI Agent 说成一条链路：先发内容，再接咨询，再推成交。对外有三块。内容营销和 GrowX 合作，做选题、批量生成和内容测试。增长获客做多平台私信、意向识别、打标和留资。成交转化做分层培育、跟进提醒和促单。</p>
+<p>登录后的后台是一套多渠道客服工作台。菜单是首页、对话、顾客、评论、知识与素材、AI 员工、数据报表和设置。侧边栏上的 Agent 标在「AI 员工」旁边，不是单独菜单。</p>
+<p>官网的三个 Agent，后台没有三个同名入口。对得上的是 AI 员工、对话、评论、顾客和自动化。对不上的是内容生产工作台，这个账号的菜单里没有。</p>
+<h2 id="laigu-产品功能">产品功能</h2>
+<h3 id="laigu-首页">首页</h3>
+<p>按天看接待了多少对话、发出多少消息、新来多少客资、有多少对话留了资。漏斗从对话到开口再到留资，并分开人工和智能。也能看各渠道的留资和开口，以及 AI 对话、AI 消息、接入账号、人工坐席还剩多少。</p>
+<h3 id="laigu-对话">对话</h3>
+<p>各渠道的消息进同一个列表。可以按全部、AI 接管、待介入、未分配、未回复、我接待的、待我介入、同事对话查看。选中一条后，在旁边继续接待。</p>
+<h3 id="laigu-顾客">顾客</h3>
+<p>查看顾客名单。能看到姓名、是不是客资、从哪个渠道来、电话和微信，也可以把名单导出。</p>
+<h3 id="laigu-评论">评论</h3>
+<p>管理小红书和视频号的评论。可以按评论时间、账号和回复状态筛选，看到笔记、评论内容、谁评的、回复了没有。</p>
+<h3 id="laigu-知识与素材">知识与素材</h3>
+<p>业务知识用来建库，把公司自己的资料导进去。参考知识可以让系统学，也可以自己写。智能任务单独放在知识空间里。</p>
+<h3 id="laigu-ai-员工">AI 员工</h3>
+<p>配置自动接待的员工。人设里写开场白、话术约束、回复字数和接待节奏，也可以规定某些说法在回复前换成指定表述。消息可以先合并再回，也可以延迟几秒再发。员工下面还能挂智能任务。</p>
+<h3 id="laigu-技能矩阵">技能矩阵</h3>
+<p>接待按顺序走：先判断是不是目标顾客，再要联系方式，然后进入服务。筛选可以要求满足任一条件、全部条件，或自己写条件，也可以把来打广告的人排除。问联系方式有两种：问名片，或留资后直接拿到。沉默了会追问，对话里的信息会抽出来。这两项一直开着。每个技能可以单独规定说法、准备话术和专属资料。</p>
+<h3 id="laigu-学习资料">学习资料</h3>
+<p>给员工准备公司知识、产品知识和业务用词，也可以从知识库里勾选它能用的资料。文本可以用富文本或 Markdown。</p>
+<h3 id="laigu-工作范围">工作范围</h3>
+<p>规定这名员工接待哪些渠道、什么时间上班、接待哪些顾客。协作可以交给单个 AI、团队主管，或自定义团队里的某个角色。</p>
+<h3 id="laigu-数据报表">数据报表</h3>
+<p>按日期和来源账号看对话数、开口、留资和趋势，也看新顾客、客资、首次响应和平均响应，以及 15 秒、30 秒、1 分钟、3 分钟内回复的比例。抖音和小红书分开统计客资和开口。详细报告把接待拆成人工、智能、协作和平台。可以导出。</p>
+<h3 id="laigu-自动化">自动化</h3>
+<p>可以自己写规则，也可以用现成模板。模板包括欢迎语、客服超时自动发一条、关键词回复、小红书评论自动回复、按条件分配客服，以及对话开了 24 小时还没留资就再追问。</p>
+<h3 id="laigu-自动触达">自动触达</h3>
+<p>按抖音账号做触达计划。设定发给谁、什么情况触发、什么时候发，并看到触达了多少人、留下多少资。</p>
+<h3 id="laigu-企微群发">企微群发</h3>
+<p>在企业微信里按发送账号管理群发。可以看发给了谁、结果如何、什么时间执行。</p>
+<h3 id="laigu-接入渠道">接入渠道</h3>
+<p>通过授权把新媒体账号接进来，其中包括企业微信。触达计划按抖音账号来建。评论覆盖小红书和视频号。</p>
+<h3 id="laigu-对话规则">对话规则</h3>
+<p>顾客发来消息后，如果客服超时没有回复，会提示首次响应超时和回复超时。</p>
+<h3 id="laigu-线索识别">线索识别</h3>
+<p>把不该算成线索的内容排除掉。可以用固定短语，也可以用正则表达式。</p>
+<h3 id="laigu-开放能力">开放能力</h3>
+<p>用 Webhook 把事件推到自己的地址，并查看推送记录。也可以生成 API 密钥。</p>
+<h3 id="laigu-团队">团队</h3>
+<p>管理团队信息、客服和分组，以及客服排序和分配权重。权限可以按全部或指定范围，控制谁能看对话、顾客、评论账号和各个菜单。</p>
+<h3 id="laigu-公共素材">公共素材</h3>
+<p>准备顾客标签、企业和客服个人的快捷回复、顾客名片上的字段，以及按渠道账号使用的智能卡片。名片用来记电话、微信和备注，字段可以按业务自己加。</p>
+<h2 id="laigu-价格才是产品边界">价格才是产品边界</h2>
+<p>报价单标题是「来鼓 Pro 报价单」，副题写着「多平台获客，就用来鼓 Pro」，并标明官方授权 IM 服务商。四档按年收费，企业版标了推荐。接入账号一栏写明不包含企业微信。旗舰版的账号、对话、坐席和价格都是联系销售。知识单元这张单上没有。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>版本</th>
+<th>年费</th>
+<th>接入账号（不含企微）</th>
+<th>AI 接待对话</th>
+<th>人工坐席</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>入门版</td>
+<td>¥1,688/年</td>
+<td>1</td>
+<td>200 个/月</td>
+<td>1</td>
+</tr>
+<tr>
+<td>专业版</td>
+<td>¥6,888/年</td>
+<td>5</td>
+<td>1,000 个/月</td>
+<td>3</td>
+</tr>
+<tr>
+<td>企业版（推荐）</td>
+<td>¥16,888/年</td>
+<td>20</td>
+<td>3,600 个/月</td>
+<td>10</td>
+</tr>
+<tr>
+<td>旗舰版</td>
+<td>联系销售</td>
+<td>联系销售</td>
+<td>联系销售</td>
+<td>联系销售</td>
+</tr>
+</tbody>
+</table></div>
+<p>套餐之外可以增购。增购表是三列各自计价：接入账号、AI 接待对话数、人工坐席。同一行左右并排，并不表示买企微号就附带对应条数的对话。AI 接待对话的增购只标了条数和价格，没有写按月还是按年。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>增购</th>
+<th>价格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>企微号</td>
+<td>¥2,000/个/年</td>
+</tr>
+<tr>
+<td>通用账号</td>
+<td>¥1,000/个/年</td>
+</tr>
+<tr>
+<td>小红书 KOS 号</td>
+<td>¥600/个/年</td>
+</tr>
+<tr>
+<td>AI 接待对话 1,000 条</td>
+<td>¥600</td>
+</tr>
+<tr>
+<td>AI 接待对话 6,000 条</td>
+<td>¥3,000</td>
+</tr>
+<tr>
+<td>AI 接待对话 20,000 条</td>
+<td>¥8,000</td>
+</tr>
+<tr>
+<td>人工坐席</td>
+<td>¥600/个/年</td>
+</tr>
+</tbody>
+</table></div>
+<p>登录账号是专业版。页面上的 AI 对话 1000、人工坐席 3，和报价单一致。页面上的接入账号是 6，报价单专业版写的是 5，且不含企微。报价单没有把 AI 消息条数单列出来。</p>
+  </article>
+</section>
+<section id="laigu-notes" class="block">
+<nav class="subnav" aria-label="本篇">
+    <a href="#laigu">竞品调查</a>
+    <a href="#laigu-notes" class="active">功能总结</a>
+  </nav>
+  <article>
+<h1 id="laigu-notes-来鼓-pro-功能总结">来鼓 Pro 功能总结</h1>
+<p>观察日期：2026-10-27<br />
+产品控制台：<a href="https://pro.laigu.com" target="_blank" rel="noopener">https://pro.laigu.com</a><br />
+本次进入的页面：<a href="https://pro.laigu.com/report-v2" target="_blank" rel="noopener">https://pro.laigu.com/report-v2</a></p>
+<p>来鼓 Pro 是成都呼声科技的企业增长控制台，对外定位是用 AI Agent 把「发内容 → 接咨询 → 推成交」串成一条链路。登录后的后台，实际组织方式是一套多渠道客服工作台：对话、顾客、评论、知识、AI 员工、报表和设置。侧边栏上的「Agent」是「AI 员工」旁边的标记，不是单独菜单。</p>
+<p>本次登录账号为专业版，有效期至 2026-10-30。配额为 AI 对话 1000、AI 消息 1000、接入账号 6、人工坐席 3。新媒体渠道尚未接入，对话、顾客和报表数字均为 0。企业微信下有 1 个已取消授权或禁用的账号。</p>
+<h2 id="laigu-notes-登录后的菜单">登录后的菜单</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>菜单</th>
+<th>路径</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>首页</td>
+<td><code>/dashboard</code></td>
+<td>昨日接待、客资、漏斗、渠道和用量</td>
+</tr>
+<tr>
+<td>对话</td>
+<td><code>/chat</code></td>
+<td>多状态收件箱</td>
+</tr>
+<tr>
+<td>顾客</td>
+<td><code>/customer/center</code></td>
+<td>顾客列表与导出</td>
+</tr>
+<tr>
+<td>评论</td>
+<td><code>/comment</code></td>
+<td>小红书、视频号评论</td>
+</tr>
+<tr>
+<td>知识与素材</td>
+<td><code>/knowledge-space</code></td>
+<td>业务知识、参考知识、智能任务</td>
+</tr>
+<tr>
+<td>AI 员工</td>
+<td><code>/ai-staff-v2</code></td>
+<td>配置自动接待员工</td>
+</tr>
+<tr>
+<td>数据报表</td>
+<td><code>/report-v2</code></td>
+<td>对话、顾客、效率和渠道报表</td>
+</tr>
+<tr>
+<td>设置</td>
+<td><code>/settings/...</code></td>
+<td>自动化、渠道、团队、素材、开放能力</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="laigu-notes-首页">首页</h2>
+<p>按自然日展示接待对话、发送消息、新增客资、留资对话。转化漏斗为对话总数 → 开口人数 → 开口率 → 留资对话 → 留资率，并区分人工与智能接待。渠道分布看留资和开口。</p>
+<p>用量区显示有效期、AI 对话数、AI 消息条数、接入账号、人工坐席，以及「节约高级客服工作量」的换算。另有累计客资、AI 员工接待对话、智能助理处理任务、自动化累计运行。</p>
+<h2 id="laigu-notes-对话">对话</h2>
+<p>收件箱按状态筛选：全部对话、AI 接管、待介入、未分配、未回复、我接待的、待我介入、同事对话。左侧选中一条对话后在右侧继续接待。当前账号没有聊天记录。</p>
+<h2 id="laigu-notes-顾客">顾客</h2>
+<p>顾客列表字段包括姓名、客资、渠道来源、电话、微信，支持导出和导出任务。当前无数据。</p>
+<h2 id="laigu-notes-评论">评论</h2>
+<p>评论管理分小红书、视频号两个渠道。可按评论时间、账号、回复状态筛选，列表包含笔记名称、评论内容、账号、回复状态、评论用户、评论时间和操作。</p>
+<h2 id="laigu-notes-知识与素材">知识与素材</h2>
+<ul>
+<li><strong>业务知识</strong>：创建知识库，导入自有业务知识。</li>
+<li><strong>参考知识</strong>：可自动学习，也可手动添加；字段有知识描述、创建时间、更新时间。</li>
+<li><strong>智能任务</strong>：在知识空间里单独建任务。当前为空。</li>
+</ul>
+<h2 id="laigu-notes-ai-员工">AI 员工</h2>
+<p>账号下已有两名 AI 员工。其中一名为「小洽 - 精准获客」，说明是先通过对话筛选目标群体，顾客满足条件后再获取联系方式。接待时间为全天，业务知识未配置，也还没有绑定渠道。</p>
+<p>员工配置分五块：</p>
+<h3 id="laigu-notes-ai-人设">AI 人设</h3>
+<p>开场白、话术约束、回复字数、接待节奏、回复内容检查。回复前可把指定语义替换成指定表述，例如提到微信时改成其他说法。可调参数包括消息聚合间隔（0–10 秒）和延迟回复间隔（0–60 秒）。开启场景和知识库检查会拉长回复时间。</p>
+<h3 id="laigu-notes-技能矩阵">技能矩阵</h3>
+<p>接待流程按顺序执行：筛选 → 获线 → 服务。</p>
+<ul>
+<li><strong>筛选</strong>：多轮询问，判断是不是目标顾客。目标可以设为任一条件满足、全部条件满足或自定义条件。可排除广告推销类访客。发出若干条消息仍无判断时，可默认视为符合目标。</li>
+<li><strong>获线</strong>：问名片、留资直达。筛选通过后再要联系方式。</li>
+<li><strong>后台技能</strong>：沉默追问、信息提取，全程运行。</li>
+<li>每个技能可单独设对话风格、话术库和专属知识。</li>
+</ul>
+<h3 id="laigu-notes-智能任务">智能任务</h3>
+<p>挂在这名员工下的任务列表。当前为空，可新建。</p>
+<h3 id="laigu-notes-学习资料">学习资料</h3>
+<p>公司知识、产品知识、业务专有名词，以及从知识库多选可调用的资料。文本支持富文本和 Markdown。</p>
+<h3 id="laigu-notes-工作范围">工作范围</h3>
+<p>接待渠道、服务时间、筛选顾客。协作方式可选单个 AI、团队主管或自定义团队角色。</p>
+<h2 id="laigu-notes-数据报表">数据报表</h2>
+<p>路径 <code>/report-v2</code>。可按日期范围和来源账号筛选，支持重置、搜索和数据导出。分「对话数据」和「详细报告」两个视图。</p>
+<p><strong>对话数据</strong></p>
+<ul>
+<li>对话总数、开口对话、留资对话、开口率、留资率</li>
+<li>活跃对话趋势，以及开口率、留资率趋势</li>
+<li>顾客数据：新增顾客数、开口人数、新增客资数、开口率、留资率</li>
+<li>对话效率：平均首次响应时长、平均响应时长，15 秒 / 30 秒 / 1 分钟 / 3 分钟回复率</li>
+<li>对话渠道：抖音、小红书各自的新增客资数和开口数</li>
+<li>人工客服：接待对话数、在线人数</li>
+</ul>
+<p><strong>详细报告</strong></p>
+<p>在上述指标上，把接待拆成人工接待、智能接待、协作接待、平台接待，并单列对话开口率和平台消息。</p>
+<h2 id="laigu-notes-设置">设置</h2>
+<h3 id="laigu-notes-智能流程">智能流程</h3>
+<ul>
+<li><strong>自动化列表</strong>（<code>/settings/automation/rule</code>）：空白规则，或导入 6 条模板。模板为欢迎语、客服未及时响应自动发消息、关键词自动回复、小红书评论自动回复、按条件自动分配客服、对话开启 24 小时仍未留资则自动追问。</li>
+<li><strong>自动触达</strong>（<code>/settings/auto-reach</code>）：按抖音账号建计划。字段包括计划类型、渠道账号、发送人群、触发方式、发送时机、触达人数、留资人数、状态。</li>
+<li><strong>企微群发任务</strong>（<code>/settings/automation/mass-send</code>）：按发送账号、群发结果、执行时间管理任务。</li>
+</ul>
+<h3 id="laigu-notes-接入渠道">接入渠道</h3>
+<p>新媒体平台（<code>/settings/platform</code>）通过「新增授权」接入。当前页面能看到企业微信，以及 1 个已取消授权或禁用的账号。首页配额显示接入账号为 0/6。</p>
+<h3 id="laigu-notes-对话设置">对话设置</h3>
+<ul>
+<li><strong>对话规则</strong>：顾客发消息后客服超时未回，触发首次响应超时和回复超时提醒。</li>
+<li><strong>线索识别</strong>：用排除固定短语、按正则表达式排除来过滤误判。</li>
+</ul>
+<h3 id="laigu-notes-开放能力">开放能力</h3>
+<ul>
+<li><strong>Webhooks</strong>：订阅事件、URL、推送平台、状态，可看日志。</li>
+<li><strong>API</strong>：生成密钥，附帮助文档。</li>
+</ul>
+<h3 id="laigu-notes-团队管理">团队管理</h3>
+<ul>
+<li>团队信息：编辑、转让、注销团队。</li>
+<li>客服列表：分组、添加客服；字段有姓名、昵称、手机号、角色、客服组。</li>
+<li>客服排序与权重：按序号排列客服，用于分配。</li>
+<li>角色权限：可按全部或指定范围控制对话、顾客、顾客信息、评论账号（小红书 / 视频号）。菜单权限覆盖智能流程、接入渠道、对话设置、团队管理、公共素材、开放能力、小洽 AI、知识与素材、评论和报表。</li>
+</ul>
+<h3 id="laigu-notes-公共素材">公共素材</h3>
+<ul>
+<li><strong>顾客标签</strong>：分类、标签、使用次数。</li>
+<li><strong>快捷回复</strong>：企业回复与个人回复，支持导入。</li>
+<li><strong>顾客名片</strong>：自定义字段。已有备注名、电话、微信、描述、手动标记留资、套电查询推送时间，以及孩子年级/学段、所在城市/区域、意向科目/项目等预置字段。</li>
+<li><strong>智能卡片</strong>：按渠道账号管理卡片及状态。</li>
+</ul>
+<h2 id="laigu-notes-官网对外讲的能力">官网对外讲的能力</h2>
+<p>控制台里这次没有单独的「内容营销 / 增长获客 / 成交转化」三个 Agent 入口。这三块是官网的产品叙事，和后台模块的对应关系如下。</p>
+<div class="table-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>官网说法</th>
+<th>后台里能对上的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>内容营销 Agent：选题、批量生成、内容测试、资产沉淀</td>
+<td>本次登录的菜单里没有内容生产工作台。官网写明内容营销与 GrowX 合作</td>
+</tr>
+<tr>
+<td>增长获客 Agent：多平台私信、意向识别、打标、留资</td>
+<td>对话、评论、AI 员工技能矩阵、顾客标签、顾客名片、线索识别</td>
+</tr>
+<tr>
+<td>成交转化 Agent：分层培育、跟进提醒、话术、保约促单</td>
+<td>顾客列表、自动触达、企微群发、沉默追问、快捷回复。没有单独的成交阶段看板</td>
+</tr>
+</tbody>
+</table></div>
+<p>官网还列出的行业方案包括教育培训、医疗美容、婚纱摄影、工厂汽修、家居家装、文旅娱乐、金融法律、珠宝首饰。当前账号的顾客名片预置字段偏向教培（年级、城市、科目）。</p>
+<p>公开计费有两种：按账号矩阵的套餐订阅（入门版、专业版、企业版、旗舰版），以及开口、留资、企微的按量预充值。本次看到的是专业版配额，不是价目表本身。</p>
+<h2 id="laigu-notes-本次没看到的内容">本次没看到的内容</h2>
+<p>渠道未接入，所以没有真实对话、顾客、评论和投放数据，也无法核对意向分级、笔记下钻和线索分配在有数据时的样子。内容批量生成不在这个账号的菜单里。</p>
+<h2 id="laigu-notes-参考">参考</h2>
+<ul>
+<li><a href="https://www.laigu.com/" target="_blank" rel="noopener">来鼓官网</a></li>
+<li><a href="https://laigu.com/llms.txt" target="_blank" rel="noopener">产品说明 llms.txt</a></li>
+<li><a href="https://laigu.com/agent/content" target="_blank" rel="noopener">内容营销 Agent</a></li>
+<li><a href="https://laigu.com/agent/growth" target="_blank" rel="noopener">增长获客 Agent</a></li>
+<li><a href="https://laigu.com/agent/conversion" target="_blank" rel="noopener">成交转化 Agent</a></li>
+<li><a href="https://laigu.com/blog/%E6%9D%A5%E9%BC%93ai%E6%95%B0%E6%8D%AE%E6%8A%A5%E8%A1%A8%E5%8D%87%E7%BA%A7%E5%91%8A%E5%88%AB%E5%87%AD%E6%84%9F%E8%A7%89%E5%81%9A%E8%BF%90%E8%90%A5%E8%AE%A9%E6%AF%8F/" target="_blank" rel="noopener">数据报表升级说明</a></li>
+</ul>
+  </article>
+</section>
+<section id="meiqia" class="block">
+<nav class="subnav" aria-label="本篇">
+    <a href="#meiqia" class="active">竞品调查</a>
+    <a href="#meiqia-notes">功能总结</a>
+  </nav>
+  <article>
+<h1 id="meiqia-竞品调查美洽">竞品调查：美洽</h1>
+<p>观察日期：2026-10-27<br />
+主体：成都美洽网络科技<br />
+控制台：app.meiqia.com<br />
+价格：销售报价（2026-10-26，非公开价目表）</p>
+<h2 id="meiqia-它在卖什么">它在卖什么</h2>
+<p>美洽原来做在线客服。官网现在把美洽 AI 说成新媒体获客：小红书、抖音、视频号、快手的账号放在一起，AI 员工全天回私信和评论，发留资卡、名片卡、交易卡，做情绪分析和顾客画像，自动打标签、追粉，再把线索推到企业微信、钉钉或飞书。</p>
+<p>登录后的工作台比这一句宽。左下角可以切换在线客服、呼叫中心、客服机器人、营销机器人、语音机器人、美洽智能体，旁边是公共设置和 AI 通用设置。在线客服里面仍是对话、评论、历史、留言、访客、呼叫、质检、监控、顾客和报表。</p>
+<p>这次对得上的，是在线客服这套工作台，以及美洽智能体和 AI 通用设置的入口。客服机器人、营销机器人、语音机器人和呼叫工作台在这个账号里没有使用权限，只看到菜单。留资卡、名片卡和追粉没有展开到配置页。</p>
+<h2 id="meiqia-产品功能">产品功能</h2>
+<h3 id="meiqia-对话">对话</h3>
+<p>各渠道的会话进同一个列表，按我的、同事的和 <span class="citation" data-cites="我">@我</span> 的来看。客服可以切换自己的在线状态。</p>
+<h3 id="meiqia-评论">评论</h3>
+<p>接入小红书之后，在这里查看和回复评论。</p>
+<h3 id="meiqia-历史">历史</h3>
+<p>查已经结束的对话。可以按访客、会话、起止时间、接待客服、顾客标签，以及广告主、广告组和计划来筛，也可以把结果导出。</p>
+<h3 id="meiqia-留言">留言</h3>
+<p>客户留下的问题单独成一条。可以按待分配、待回复、处理中、已解决来分，也能批量处理。</p>
+<h3 id="meiqia-访客">访客</h3>
+<p>看当前正在网站上的人。可以按地区、设备和来源筛选，看到访问次数、正在看的页面，以及广告带来的参数。</p>
+<h3 id="meiqia-质检">质检</h3>
+<p>对对话和通话做抽样检查。对话侧可以配置质检方案，看质检率、响应时长、接待客服和消息量。呼叫侧另外做通话质检，并出质检报表。</p>
+<h3 id="meiqia-监控">监控</h3>
+<p>在线客服和呼叫中心各有一块大屏。在线侧看今天的对话和访客、正在进行和已经结束的对话、响应时长和好评率，也看客服在不在线、有没有人在排队。</p>
+<h3 id="meiqia-顾客">顾客</h3>
+<p>保存客户资料。除了姓名、电话、微信，还能记来源页面、搜索词、广告账号和投放参数。可以导入，也可以导出。</p>
+<h3 id="meiqia-报表">报表</h3>
+<p>看总对话、有效对话、进线人数、开口人数、线索和留资新增的顾客。下面再按渠道、网页、搜索词、线索、标签、客服工作量、呼叫、营销机器人、语音机器人、留言和工单拆开。可以导出。</p>
+<h3 id="meiqia-对话设置">对话设置</h3>
+<p>访客开口之前可以先填一张表。也可以设置自动消息、会话怎么分配、排队、评价、标签、敏感词、智能引导和推荐、防刷、黑名单和服务时间，以及网页插件和子渠道。</p>
+<h3 id="meiqia-呼叫中心">呼叫中心</h3>
+<p>记录通话、重复呼入和外呼任务。也可以管理中继号码、坐席、IVR、队列、外呼规则和计费。</p>
+<h3 id="meiqia-客服机器人">客服机器人</h3>
+<p>用知识库回答问题。知识分预置、企业和表格三种。可以查看没识别、没解决的问题，以及应答类型、问题命中和转人工的统计。也可以维护专有名词和拦截词。</p>
+<h3 id="meiqia-营销机器人">营销机器人</h3>
+<p>单独用来做营销触达，按剩余条数计算。</p>
+<h3 id="meiqia-语音机器人">语音机器人</h3>
+<p>做电话外呼。可以建外呼任务、写话术模板、管理意图、变量、标签和黑名单，并查看通话记录。</p>
+<h3 id="meiqia-美洽智能体">美洽智能体</h3>
+<p>用大模型接待。仓库里可以创建和测试智能体，看到接待了多少人、转人工的比例。报表看接待趋势。没识别的问题可以拿去继续学。</p>
+<h3 id="meiqia-ai-通用设置">AI 通用设置</h3>
+<p>给智能体准备共用的材料：实体、知识库，以及要调用的外部接口。实体里已经有城市、区县、国家和省份，也可以自己加。</p>
+<h3 id="meiqia-渠道接入">渠道接入</h3>
+<p>可以接聊天链接、网页插件、SDK、短信、邮件、微信公众号、微信小程序、微信客服、企业微信、微博、抖音、小红书、抖音来客广告、飞书、快手私信，以及 CRM、广告平台和第三方应用。</p>
+<h3 id="meiqia-开放能力">开放能力</h3>
+<p>用 API 和 Webhook 把对话和线索交到自己的系统。</p>
+<h3 id="meiqia-团队">团队</h3>
+<p>管理团队信息、客服和分组、角色权限。可以限制账号怎么登录、接入第三方验证，并留下操作日志。回复可以做成企业共用的快捷回复，也可以在对话里嵌页面和快捷按钮。</p>
+<h2 id="meiqia-价格才是产品边界">价格才是产品边界</h2>
+<p>公开价目表这次仍然没有打开。下面是服务经理沐沐 2026-10-26 的报价，对方写的是「目前价目大致是这样」，而且是顺着企业微信来报的，不是一套按版本切开的套餐。</p>
+<p>三项分开计费。知识单元、消息按月还是按年重置，这次没有报，这两格继续空着。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>价格</th>
+<th>包含</th>
+<th>知识单元</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>智能体</td>
+<td>¥6,888/年</td>
+<td>赠送 10 万条消息</td>
+<td></td>
+</tr>
+<tr>
+<td>人工坐席</td>
+<td>¥1,888/坐席/年</td>
+<td>开通后可增加渠道</td>
+<td></td>
+</tr>
+<tr>
+<td>企业微信</td>
+<td>¥2,000/年/个</td>
+<td>30 个企微群，单聊不限</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>开通人工坐席后，可以增加这些渠道：聊天链接、网页插件、SDK、短信、邮件、微信公众号、微信小程序、微信客服、微博、抖音、小红书、抖音来客广告、飞书、快手私信，以及 CRM、广告平台和第三方应用。企业微信仍按 ¥2,000/年/个另计。</p>
+<p>智能体可以先单独试用 7 天，再和企业微信绑定。企业微信走服务商，对方说会有成本，服务商给 3 天试用。</p>
+<p>10 万条消息写的是随智能体年费赠送，没有说成每月额度，所以没有换算成月消息。</p>
+<p>对方建议先在网页上把人工和智能体一起测通，再接入企业微信的正式环境。</p>
+  </article>
+</section>
+<section id="meiqia-notes" class="block">
+<nav class="subnav" aria-label="本篇">
+    <a href="#meiqia">竞品调查</a>
+    <a href="#meiqia-notes" class="active">功能总结</a>
+  </nav>
+  <article>
+<h1 id="meiqia-notes-美洽功能总结">美洽功能总结</h1>
+<p>观察日期：2026-10-27<br />
+产品控制台：<a href="https://app.meiqia.com" target="_blank" rel="noopener">https://app.meiqia.com</a><br />
+本次进入的页面：<a href="https://app.meiqia.com/comment" target="_blank" rel="noopener">评论</a></p>
+<p>美洽是成都美洽网络科技的在线客服系统。登录后的工作台是图标栏加产品切换器：在线客服、呼叫中心、客服机器人、营销机器人、语音机器人、美洽智能体、公共设置、AI 通用设置。这次打开的评论页属于在线客服，不是单独产品。</p>
+<p>当前账号为试用版，2026-11-02 到期后自动转为体验版，未续费的功能会被冻结。团队主体是广东省青年生产力促进中心有限公司，行业为教育/培训，地区广东佛山，2026-10-26 注册，企业已认证。对话接待上限 2，当前已接待 0，客服状态为隐身。传统客服机器人无权限、剩余消息数 0；营销机器人余量 0 条；语音机器人需联系商务购买；呼叫工作台提示当前账号没有呼叫权限。美洽智能体同为试用，有效期至 2026-11-02，余量 1 个。</p>
+<h2 id="meiqia-notes-在线客服">在线客服</h2>
+<p>左侧图标依次是：对话、评论、历史、留言、访客、呼叫、质检、监控、顾客、报表。</p>
+<h3 id="meiqia-notes-对话">对话</h3>
+<p>路径 <code>/chat</code>。按「我的 / 同事 / <span class="citation" data-cites="我">@我</span>」看会话。未选中对话时提示没有需要处理的内容。顶部可切换在线状态（当前是隐身），并有新手引导和短信入口。</p>
+<h3 id="meiqia-notes-评论">评论</h3>
+<p>路径 <code>/comment</code>，也是这次指定的地址。页面只有一句「暂无数据，请先授权接入小红书」，以及「授权接入」。小红书账号接上之前，看不到评论列表、筛选或自动回复。</p>
+<h3 id="meiqia-notes-历史">历史</h3>
+<p>路径 <code>/history</code>。按用户名称、访客标识、会话 ID、对话开始和结束时间、接待客服、预分配客服、顾客标签，以及广告主 ID、广告组 ID、计划 ID 筛选。可保存筛选条件，导出数据和查看历史导出。当前 0 条。</p>
+<h3 id="meiqia-notes-留言">留言</h3>
+<p>路径 <code>/leaveMsg/</code>。可新建留言。视图分全部、我的、待我处理、抄送给我、我创建的、我回复的、我处理的；状态分未解决（待分配、待回复、处理中）和已完成（已解决、不需处理）。支持自定义筛选和批量处理。当前 0 条。</p>
+<h3 id="meiqia-notes-访客">访客</h3>
+<p>路径 <code>/visitor</code>。看正在网站上的人，可按区域、设备、来源筛选，字段有访客信息、访问次数、utm、正在访问。可导出。当前在线 0 人。</p>
+<h3 id="meiqia-notes-呼叫">呼叫</h3>
+<p>路径 <code>/call/no-perm</code>。入口在，但当前账号没有呼叫权限，页面提示联系团队管理员。</p>
+<h3 id="meiqia-notes-质检">质检</h3>
+<p>路径 <code>/inspection/conversation</code>。分对话和呼叫。对话侧有对话质检、质检结果、质检报表、质检方案配置；呼叫侧有通话质检。对话质检按时间、质检方案抽样，展示有效对话数、已质检数、质检率，以及响应时长、接待客服、消息量。当前抽样 0 条。</p>
+<h3 id="meiqia-notes-监控">监控</h3>
+<p>路径 <code>/datascreen</code>。分在线客服和呼叫中心两个数据大屏。在线客服看今日对话和访客趋势（新访客数、对话数），以及正在对话、已完成对话、消息数、平均在线时长、平均响应、平均首次响应、平均好评率。下面是客服监控和排队监控，客服表包含状态、小组、工号、在线时长、手动邀评数、好评率。当前无客服在线数据。</p>
+<h3 id="meiqia-notes-顾客">顾客</h3>
+<p>路径 <code>/engage</code>。可加筛选、导入、导出。字段包括姓名、性别、电话、邮箱、QQ、微信、微博、地址、备注、年龄、顾客标签、联系人、openid、创建和更新时间、最近对话时间、IP、浏览器语言、地区、操作系统、浏览器、来源类型、来路页、着陆页、搜索词、关键词、百度推广账号 ID、关注来源、私信来源、对话页，以及 source、medium、term、content、campaign。当前 0 个顾客。</p>
+<h3 id="meiqia-notes-报表">报表</h3>
+<p>路径 <code>/report/new/overview</code>。数据概览可导出 Excel，指标有总对话、总有效对话数和有效对话率、进线人数、开口人数、访客消息数、客服人工消息数、总线索数、留线新增顾客数、机器人发送消息比例、对话接通率，以及销售线索来源前三、接待客服前三。子报表还有：</p>
+<ul>
+<li>排队报表</li>
+<li>对话：对话渠道、网页对话、搜索词、线索获取、对话标签、顾客标签</li>
+<li>客服：客服服务量、在线时长、客服评价</li>
+<li>呼叫中心：中继号码呼入/呼出、呼叫客服服务量、客服状态时长、呼入一次性解决率、队列报表</li>
+<li>营销机器人、语音机器人（呼入统计、呼出统计）</li>
+<li>留言统计</li>
+<li>工单：工单概览、客服报表、满意度报表</li>
+</ul>
+<p>当前对话和线索均为 0。</p>
+<h2 id="meiqia-notes-在线客服的设置">在线客服的设置</h2>
+<p>从对话设置进入，菜单包括：</p>
+<ul>
+<li>询前表单、自动消息、对话分配、对话规则、自动规则</li>
+<li>顾客排队、顾客评价、对话标签、对话扩展</li>
+<li>敏感词、智能引导、智能推荐、自定义消息、对话防刷、黑名单</li>
+<li>留言设置、留言分类、内部模板</li>
+<li>在线安全设置、服务时间</li>
+<li>网页插件、子渠道、默认接入网站</li>
+</ul>
+<p>询前表单页能看到窗口内容设置、客服分配问题、顾客信息收集表单，当前未启用。</p>
+<h2 id="meiqia-notes-其他产品">其他产品</h2>
+<p>产品切换器在左下角。</p>
+<p><strong>呼叫中心</strong>默认进通话记录。菜单有通话记录、重复呼入、外呼任务，以及中继管理、坐席管理、呼叫配置、业务记录、IVR、队列、变量、外呼规则、呼叫黑名单、客服状态日志、计费信息。记录可按号码、中继号、通话状态、归属地、呼叫类型、接待客服、评价、标签筛选并导出。当前 0 条。工作台本身没有呼叫权限。</p>
+<p><strong>客服机器人</strong>是传统知识库机器人。菜单有对话统计、应答类型统计、问题统计、转人工统计；未识别问题、未解决问题；预置知识库、企业知识库、表格知识库；专有名词、拦截词；机器人设置。本账号无权限，剩余消息数 0。</p>
+<p><strong>营销机器人</strong>（<code>/marketing/robot</code>）只有机器人入口，当前余量 0 条。</p>
+<p><strong>语音机器人</strong>菜单有外呼任务、话术模板、意图管理、通话记录、变量、标签、黑名单、历史导出。页面提示购买后才能使用。</p>
+<p><strong>美洽智能体</strong>（<code>/robot-llm/list</code>）是大模型智能体。分智能体仓库、数据报表、强化能力。仓库可创建和测试，卡片上有接待数、转人工率。当前 1 个试用智能体，暂无签名，接待数 0，转人工率 0。报表看接待对话总数和对话趋势。强化能力是「学习未识别的问题」。</p>
+<p><strong>AI 通用设置</strong>分实体库、知识库、自定义 API。实体管理有预设实体和自定义实体，预设能看到城市、区县、国家、省份。</p>
+<h2 id="meiqia-notes-公共设置">公共设置</h2>
+<p>路径从团队信息进入。</p>
+<ul>
+<li>团队：团队信息、客服与分组、角色与权限、ID 查询</li>
+<li>通用：快捷回复、iframe、快捷按钮</li>
+<li>接入：聊天链接、网页插件、SDK、短信、邮件、微信公众号、微信小程序、微信客服、企业微信、微博、抖音、小红书、抖音来客广告、飞书、快手私信、CRM、广告平台、第三方应用</li>
+<li>顾客：顾客管理、顾客标签</li>
+<li>开发者：APIs、Webhooks</li>
+<li>安全：账号登录限制、第三方验证登录、操作日志</li>
+<li>订购：企业付款</li>
+</ul>
+<p>评论页要求的小红书授权，对应接入菜单里的小红书。本次没有完成授权，所以评论列表是空的。</p>
+<h2 id="meiqia-notes-官网对外讲的能力">官网对外讲的能力</h2>
+<p>官网把新版美洽 AI 说成新媒体获客工作台：小红书、抖音、视频号、快手等多账号聚合，AI 员工 7×24 小时回私信和评论，发留资卡、名片卡、交易卡，做情绪分析和顾客画像，自动打标签、追粉，线索经 Webhooks 推到企业微信、钉钉、飞书。说明见 <a href="https://www.meiqia.com/ai" target="_blank" rel="noopener">美洽 AI</a> 和 <a href="https://www.meiqia.com/blog/xin-mei-qia-ai/" target="_blank" rel="noopener">新功能盘点</a>。</p>
+<p>和这次登录后台的对应关系：</p>
+<div class="table-wrap"><table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>官网说法</th>
+<th>这次后台里能对上的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小红书评论回复、意向评论筛选</td>
+<td>评论页存在，但要先授权小红书，授权前没有列表和自动回复</td>
+</tr>
+<tr>
+<td>多渠道私信聚合、留资和标签</td>
+<td>对话、顾客字段、对话标签、顾客标签、接入里的抖音/小红书/快手/微信</td>
+</tr>
+<tr>
+<td>AI 员工、知识库、追粉</td>
+<td>美洽智能体、AI 通用设置里的知识库；营销机器人入口在，余量为 0</td>
+</tr>
+<tr>
+<td>数据看板反哺投放</td>
+<td>报表里的线索获取、对话渠道、销售线索来源</td>
+</tr>
+</tbody>
+</table></div>
+<p>传统在线客服、留言、质检、呼叫、工单报表仍在这个工作台里，官网新叙事没有把这些拿掉。</p>
+<h2 id="meiqia-notes-本次没看全的内容">本次没看全的内容</h2>
+<p>小红书未授权，评论的筛选、笔记维度和自动批量回复没有出现。传统客服机器人、营销机器人、语音机器人和呼叫工作台被权限或余量挡住，只看到菜单和空状态。智能体仓库没有展开单个智能体的人设和技能配置。对话、顾客、留言、质检都没有业务数据。</p>
+<h2 id="meiqia-notes-参考">参考</h2>
+<ul>
+<li><a href="https://www.meiqia.com/" target="_blank" rel="noopener">美洽官网</a></li>
+<li><a href="https://www.meiqia.com/ai" target="_blank" rel="noopener">美洽 AI</a></li>
+<li><a href="https://www.meiqia.com/blog/xin-mei-qia-ai/" target="_blank" rel="noopener">全新美洽 AI 功能盘点</a></li>
+<li><a href="https://www.meiqia.com/blog/3299/" target="_blank" rel="noopener">小红书、抖音私信获客说明</a></li>
+</ul>
+  </article>
+</section>
+  </div>
+</body>
+</html>
