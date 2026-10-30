@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>竞品对比：3Chat、来鼓、美洽</title>
+  <title>竞品对比：3Chat、来鼓、美洽、红熊 AI</title>
   <style>
 :root {
   --ink: #1a1a1a;
@@ -100,7 +100,7 @@ a:hover { color: #163a5c; }
 
 .jumps {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 14px;
   margin-bottom: 22px;
 }
@@ -144,6 +144,7 @@ a:hover { color: #163a5c; }
 .jump-chat { border-top: 3px solid #0f766e; }
 .jump-laigu { border-top: 3px solid #c2410c; }
 .jump-meiqia { border-top: 3px solid #6d28d9; }
+.jump-redbear { border-top: 3px solid #be123c; }
 
 .zone-label {
   margin: 8px 0 16px;
@@ -163,6 +164,7 @@ a:hover { color: #163a5c; }
 .company-chat { --accent: #0f766e; }
 .company-laigu { --accent: #c2410c; }
 .company-meiqia { --accent: #6d28d9; }
+.company-redbear { --accent: #be123c; }
 .company article h3 { color: var(--accent); }
 
 .mods { margin: 0 0 0.4em; }
@@ -262,7 +264,7 @@ article code {
 @media (max-width: 800px) {
   .site-header-inner { align-items: flex-start; flex-direction: column; gap: 10px; padding: 12px 16px; }
   .wrap { padding: 18px 14px 48px; }
-  .jumps { grid-template-columns: 1fr; }
+  .jumps { grid-template-columns: 1fr 1fr; }
   article { padding: 22px 16px 28px; border-radius: 12px; }
   article h1 { font-size: 26px; }
   article table { min-width: 560px; }
@@ -270,6 +272,73 @@ article code {
 
 .block { scroll-margin-top: 72px; margin-bottom: 28px; }
 .block h1, .block h2, .block h3 { scroll-margin-top: 80px; }
+
+a:focus-visible, .jump:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+.jump { transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s; }
+.jump:hover { box-shadow: 0 6px 18px rgba(31, 78, 121, 0.1); transform: translateY(-1px); }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 4px 0 0.9em;
+}
+.stats-note { margin: 0 0 6px; color: var(--muted); font-size: 13px; }
+.stat {
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  padding: 12px 14px;
+  background: var(--row);
+}
+.stat-chat { --accent: #0f766e; }
+.stat-laigu { --accent: #c2410c; }
+.stat-meiqia { --accent: #6d28d9; }
+.stat-redbear { --accent: #be123c; }
+.stat b { display: block; font-size: 13px; color: var(--accent); font-weight: 650; }
+.stat strong { display: block; margin: 2px 0; font-size: 24px; line-height: 1.25; color: var(--ink); font-variant-numeric: tabular-nums; }
+.stat span { display: block; font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+i.guess { display: inline-block; margin-right: 6px; padding: 0 6px; font-style: normal; font-size: 12px; line-height: 1.6; color: var(--muted); background: #eef1f4; border: 1px solid var(--line); border-radius: 4px; }
+.guess-note { color: var(--muted); font-size: 14px; }
+article td:empty::after { content: "—"; color: #a3acb5; }
+article td:first-child { font-weight: 600; color: var(--ink); white-space: nowrap; }
+article tbody tr:hover td { background: var(--brand-soft); }
+.table-wrap th:first-child, .table-wrap td:first-child { position: sticky; left: 0; z-index: 1; }
+.table-wrap td:first-child { background: var(--paper); box-shadow: 1px 0 0 var(--line); }
+article tbody tr:nth-child(even) td:first-child { background: var(--row); }
+article tbody tr:hover td:first-child { background: var(--brand-soft); }
+.company th { background: var(--accent); }
+
+@media (max-width: 800px) {
+  .site-header-inner { flex-direction: row; align-items: center; gap: 12px; padding: 10px 14px; }
+  .nav { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a { flex: none; padding: 5px 10px; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .stat strong { font-size: 21px; }
+}
+
+@media print {
+  body { background: #fff; font-size: 12pt; }
+  .site-header, .jumps, .zone-label { display: none; }
+  .wrap { padding: 0; max-width: none; }
+  .companies { background: none; border: 0; padding: 0; }
+  article { border: 0; padding: 0; }
+  .block { break-before: page; margin: 0; }
+  .block:first-child { break-before: auto; }
+  .table-wrap { overflow: visible; }
+  article table { min-width: 0; }
+  tr, .mods div, .stat { break-inside: avoid; }
+  .jump, .stat, a { box-shadow: none; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .jump { transition: none; }
+  .jump:hover { transform: none; }
+}
 
   </style>
 </head>
@@ -283,12 +352,13 @@ article code {
         <a href="#chat">3Chat</a>
         <a href="#laigu">来鼓</a>
         <a href="#meiqia">美洽</a>
+        <a href="#redbear">红熊</a>
       </nav>
     </div>
   </header>
   <div class="wrap">
 <section id="compare" class="block">
-<p class="zone-label">三家对比</p>
+<p class="zone-label">四家对比</p>
 <section class="jumps" aria-label="分篇">
     <a class="jump jump-chat" href="#chat">
       <strong>3Chat</strong>
@@ -305,36 +375,48 @@ article code {
       <span>智能体、坐席、企微分开卖。</span>
       <em>竞品调查</em>
     </a>
+    <a class="jump jump-redbear" href="#redbear">
+      <strong>红熊 AI</strong>
+      <span>三档功能一样，按坐席和次数卖。</span>
+      <em>竞品调查</em>
+    </a>
   </section>
   <article>
-<h1 id="cmp-竞品对比3chat来鼓美洽">竞品对比：3Chat、来鼓、美洽</h1>
-<p>观察日期：2026-10-27。价格出处：3Chat 官网价格页；来鼓报价单；美洽销售报价（2026-10-26，对方说大致如此）。</p>
+<h1 id="cmp-竞品对比3chat来鼓美洽">竞品对比：3Chat、来鼓、美洽、红熊 AI</h1>
+<p>观察日期：2026-10-27，红熊 2026-10-30。价格出处：3Chat 官网价格页；来鼓报价单；美洽销售报价（2026-10-26，对方说大致如此）；红熊销售套餐图。</p>
 <h2 id="cmp-放在一起看">放在一起看</h2>
 <p>三家都做多平台 AI 接待和获客，年费不能横比。3Chat 卖每月消息条数和知识单元，渠道按个加。来鼓卖每月 AI 接待对话个数、接入账号和人工坐席。美洽把智能体、坐席、企微分开卖，10 万条消息随年费赠送，没写成每月额度。来鼓说的「1 个对话」里可以有很多条消息。</p>
-<p>同一件事估一年：AI 接待、1 个坐席、1 个企微，小红书和抖音各 1 个。3Chat 专业版 ¥34,300，对应 20,000 条消息/月、知识单元 500。来鼓专业版加 1 个企微号 ¥8,888，对应 1,000 个对话/月、坐席 3。美洽智能体加 1 个坐席加 1 个企微 ¥10,776，对应赠送 10 万条消息、坐席 1。</p>
+<p>同一件事估一年：AI 接待、1 个坐席、1 个企微，小红书和抖音各 1 个。3Chat 专业版 ¥34,300，对应 20,000 条消息/月、知识单元 500。来鼓专业版加 1 个企微号 ¥8,888，对应 1,000 个对话/月、坐席 3。美洽智能体加 1 个坐席加 1 个企微 ¥10,776，对应赠送 10 万条消息、坐席 1。红熊专业版 ¥10,000，对应 30,000 次 AI 对话/年、坐席 1，抖音和小红书能不能接还没确认。</p>
+<p class="stats-note">同一件事一年多少钱</p>
+<div class="stats">
+  <div class="stat stat-chat"><b>3Chat</b><strong>¥34,300</strong><span>20,000 条消息/月，知识单元 500</span></div>
+  <div class="stat stat-laigu"><b>来鼓</b><strong>¥8,888</strong><span>1,000 个对话/月，坐席 3</span></div>
+  <div class="stat stat-meiqia"><b>美洽</b><strong>¥10,776</strong><span>赠送 10 万条消息，坐席 1</span></div>
+  <div class="stat stat-redbear"><b>红熊 AI</b><strong>¥10,000</strong><span>3 万次 AI 对话/年，坐席 1；抖音、小红书未确认</span></div>
+</div>
 <h2 id="cmp-各在卖什么">各在卖什么</h2>
 <p><strong>3Chat</strong>　要把对话推进到留资、预约、下单或复购。搭建助手生成智能体，沙盒里试，再发布。</p>
 <p><strong>来鼓</strong>　对外是发内容、接咨询、推成交。后台是客服工作台，AI 员工按筛选、获线、服务接待。内容生产不在这个账号的菜单里。</p>
 <p><strong>美洽</strong>　从在线客服长出来，官网在讲新媒体获客。工作台里仍有呼叫、质检、留言和监控。</p>
+<p><strong>红熊 AI</strong>　官网讲 AI 记忆和人机协作，客户是运营商这类大企业。后台是客服中心：排队、工单、质检、考勤排班。三档功能一样，只差坐席和 AI 次数；智能体按工作流由红熊方搭好交付。</p>
 <h2 id="cmp-功能对照">功能对照</h2>
 <div class="table-wrap"><table>
-<thead><tr><th>能力</th><th>3Chat</th><th>来鼓</th><th>美洽</th></tr></thead>
+<thead><tr><th>能力</th><th>3Chat</th><th>来鼓</th><th>美洽</th><th>红熊 AI</th></tr></thead>
 <tbody>
-<tr><td>搭智能体</td><td>问答生成，能看旧版本</td><td>配人设、资料、工作范围</td><td>能创建和测试，人设没展开</td></tr>
-<tr><td>发布前试</td><td>沙盒、批量测试</td><td></td><td>可测试</td></tr>
-<tr><td>话术</td><td>语气、固定答案、按情况办事</td><td>筛选、获线、服务</td><td>快捷回复；另有知识库机器人</td></tr>
-<tr><td>收件箱</td><td>各渠道一个列表</td><td>各渠道一个列表</td><td>各渠道一个列表</td></tr>
-<tr><td>评论</td><td></td><td>小红书、视频号</td><td>小红书</td></tr>
-<tr><td>主动触达</td><td>企微私聊、群发、朋友圈</td><td>抖音触达；未留资追问；企微群发</td><td>营销机器人按条</td></tr>
-<tr><td>企微</td><td>加好友、群发、朋友圈、日历</td><td>接入和群发</td><td>30 个群，单聊不限</td></tr>
-<tr><td>呼叫、质检、留言</td><td></td><td></td><td>都有</td></tr>
-<tr><td>复盘</td><td>消息、洞察、测试集</td><td>开口、留资、响应时长</td><td>线索报表、转人工率</td></tr>
-<tr><td>接到自己的系统</td><td>Webhook、API</td><td>Webhook、API</td><td>API、Webhook</td></tr>
+<tr><td>搭智能体</td><td>问答生成，能看旧版本</td><td>配人设、资料、工作范围</td><td>能创建和测试，人设没展开</td><td>工作流，红熊方搭建</td></tr>
+<tr><td>发布前试</td><td>沙盒、批量测试</td><td></td><td>可测试</td><td>红熊方测试后交付</td></tr>
+<tr><td>话术</td><td>语气、固定答案、按情况办事</td><td>筛选、获线、服务</td><td>快捷回复；另有知识库机器人</td><td>话术库、快捷回复、话术推荐</td></tr>
+<tr><td>收件箱</td><td>各渠道一个列表</td><td>各渠道一个列表</td><td>各渠道一个列表</td><td>各渠道一个列表；有排队</td></tr>
+<tr><td>评论</td><td></td><td>小红书、视频号</td><td>小红书</td><td>有菜单，没展开</td></tr>
+<tr><td>主动触达</td><td>企微私聊、群发、朋友圈</td><td>抖音触达；未留资追问；企微群发</td><td>营销机器人按条</td><td>推送任务，没展开</td></tr>
+<tr><td>企微</td><td>加好友、群发、朋友圈、日历</td><td>接入和群发</td><td>30 个群，单聊不限</td><td>自建应用接入，多端同步</td></tr>
+<tr><td>呼叫、质检、留言</td><td></td><td></td><td>都有</td><td>AI 质检、工单、排班；外呼另一产品</td></tr>
+<tr><td>复盘</td><td>消息、洞察、测试集</td><td>开口、留资、响应时长</td><td>线索报表、转人工率</td><td>会话量、排队、满意度、意图识别</td></tr>
+<tr><td>接到自己的系统</td><td>Webhook、API</td><td>Webhook、API</td><td>API、Webhook</td><td>旗舰版含 CRM</td></tr>
 </tbody></table></div>
-<p>3Chat 重在把智能体做出来再接到渠道，企微跟进最全。来鼓重在获客漏斗。美洽重在人工客服工作台。</p>
+<p>3Chat 重在把智能体做出来再接到渠道，企微跟进最全。来鼓重在获客漏斗。美洽重在人工客服工作台。红熊更像客服中心管理系统，面向成建制的客服团队，微信生态接得最全，还接美团和电商平台。</p>
 <h2 id="cmp-价格">价格</h2>
 <h3 id="cmp-chat">3Chat</h3>
-<p>年付，节省 16%。月付没拿到。企业版未列入。</p>
 <div class="table-wrap"><table>
 <thead><tr><th>版本</th><th>年费</th><th>月消息</th><th>知识单元</th><th>卡片上的卖点</th></tr></thead>
 <tbody>
@@ -344,7 +426,6 @@ article code {
 </tbody></table></div>
 <p>小红书、抖音私信三档都另付 ¥1,500/年/个，抖音标着 Beta。企微成长版不含，专业版和商业版 ¥1,500/年/个。个人号 ¥98/月/个。官网、邮件、微信客服、微信小店、微信服务号、WhatsApp、Instagram、Facebook 三档都含。</p>
 <h3 id="cmp-来鼓">来鼓</h3>
-<p>按年收费，企业版标了推荐。接入账号不含企微。旗舰版联系销售。知识单元这张单上没有。</p>
 <div class="table-wrap"><table>
 <thead><tr><th>版本</th><th>年费</th><th>接入账号（不含企微）</th><th>AI 接待对话</th><th>人工坐席</th></tr></thead>
 <tbody>
@@ -355,7 +436,6 @@ article code {
 </tbody></table></div>
 <p>增购各自计价：企微号 ¥2,000/个/年，通用账号 ¥1,000/个/年，小红书 KOS ¥600/个/年，人工坐席 ¥600/个/年。AI 对话包 1,000 条 ¥600、6,000 条 ¥3,000、20,000 条 ¥8,000，没写按月还是按年。普通抖音号、普通小红书号没有另标价。</p>
 <h3 id="cmp-美洽">美洽</h3>
-<p>公开价目表没打开。下面是销售顺着企微报的价。知识单元和消息周期空着。</p>
 <div class="table-wrap"><table>
 <thead><tr><th>项目</th><th>价格</th><th>包含</th><th>知识单元</th></tr></thead>
 <tbody>
@@ -364,17 +444,26 @@ article code {
 <tr><td>企业微信</td><td>¥2,000/年/个</td><td>30 个企微群，单聊不限</td><td></td></tr>
 </tbody></table></div>
 <p>坐席开通后可加网页、微信、抖音、小红书、飞书、快手等。企微另计。智能体可单独试用 7 天，企微服务商试用 3 天。</p>
+<h3 id="cmp-红熊">红熊 AI</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>版本</th><th>年费</th><th>客服坐席</th><th>AI 对话次数</th><th>CRM</th><th>第四行（被遮挡）</th></tr></thead>
+<tbody>
+<tr><td>专业版</td><td>¥10,000/年</td><td>1 个</td><td>30,000 次</td><td></td><td></td></tr>
+<tr><td>企业版</td><td>¥30,000/年</td><td>10 个</td><td>50,000 次</td><td></td><td></td></tr>
+<tr><td>旗舰版</td><td>¥50,000/年</td><td>20 个</td><td>100,000 次</td><td>含</td><td>2 个</td></tr>
+</tbody></table></div>
+<p>AI 次数只在当年订阅周期内用，到期清零，不结转、不折现。专业版最多增购 2 个账号，单价没给。「次」是一轮对话还是一条消息没写。</p>
 <h3 id="cmp-凑成同一件事">凑成同一件事</h3>
 <div class="table-wrap"><table>
-<thead><tr><th></th><th>3Chat</th><th>来鼓</th><th>美洽</th></tr></thead>
+<thead><tr><th></th><th>3Chat</th><th>来鼓</th><th>美洽</th><th>红熊 AI</th></tr></thead>
 <tbody>
-<tr><td>怎么配</td><td>专业版 + 企微 + 小红书 + 抖音</td><td>专业版 + 1 个企微号</td><td>智能体 + 1 坐席 + 1 企微</td></tr>
-<tr><td>一年</td><td>¥34,300</td><td>¥8,888</td><td>¥10,776</td></tr>
-<tr><td>用量</td><td>20,000 条消息/月，知识单元 500</td><td>1,000 个对话/月，坐席 3</td><td>赠送 10 万条，周期未说明；坐席 1</td></tr>
+<tr><td>怎么配</td><td>专业版 + 企微 + 小红书 + 抖音</td><td>专业版 + 1 个企微号</td><td>智能体 + 1 坐席 + 1 企微</td><td>专业版</td></tr>
+<tr><td>一年</td><td>¥34,300</td><td>¥8,888</td><td>¥10,776</td><td>¥10,000</td></tr>
+<tr><td>用量</td><td>20,000 条消息/月，知识单元 500</td><td>1,000 个对话/月，坐席 3</td><td>赠送 10 万条，周期未说明；坐席 1</td><td>30,000 次/年，到期清零；坐席 1；抖音、小红书未确认</td></tr>
 </tbody></table></div>
-<p>先不接企微时，3Chat 成长版加小红书和抖音是 ¥12,800/年。来鼓入门版 ¥1,688，只有 1 个非企微账号。美洽只买智能体是 ¥6,888，渠道写在坐席上。</p>
+<p>先不接企微时，3Chat 成长版加小红书和抖音是 ¥12,800/年。来鼓入门版 ¥1,688，只有 1 个非企微账号。美洽只买智能体是 ¥6,888，渠道写在坐席上。红熊最低就是专业版 ¥10,000。</p>
 <p>企微单价：3Chat ¥1,500/年/个，没写含多少群；来鼓和美洽都是 ¥2,000，美洽写明 30 个群。3Chat 另有个人号 ¥98/月/个。</p>
-<p>还空着：3Chat 月付；来鼓知识单元、旗舰版、对话包周期；美洽知识单元、10 万条的周期、公开价目表。</p>
+<p>还空着：3Chat 月付；来鼓知识单元、旗舰版、对话包周期；美洽知识单元、10 万条的周期、公开价目表；红熊「次」怎么算、增购单价、能否接抖音和小红书。</p>
 </article>
 </section>
 </div>
@@ -458,7 +547,56 @@ article code {
 <p>智能体、坐席、企微三项见上方对比。坐席开通后才能加小红书、抖音这些渠道。建议先在网页上把人工和智能体测通，再接企微正式环境。</p>
 </article>
 </section>
+<section id="redbear" class="block company company-redbear">
+<article>
+<h1 id="redbear-竞品调查红熊ai">竞品调查：红熊 AI</h1>
+<p>上海算模算样科技有限公司（2024 年成立）<br />控制台：lingqi.redbearai.com（红熊灵启）　价格：销售套餐图（2026-10-30）</p>
+<h2 id="redbear-它在卖什么">它在卖什么</h2>
+<p>官网讲「AI 记忆科学」，产品分智能客服、智能外呼、营销转化、企业培训。客服这块讲全渠道自动应答、跨渠道统一记忆、人机协作：转人工以后还能交回机器人。案例是浙江移动、中国移动这类大客户。</p>
+<p>后台像客服中心管理系统：排队、满意度、工单、质检、考勤排班都是一级菜单。智能体基于工作流，销售说由红熊方搭好、测好再交付，拉群持续答疑；建议先买基础版，小步快跑。</p>
+<h2 id="redbear-产品功能">产品功能</h2>
+<p class="guess-note">套餐图列了九个模块，三个版本通用。右边对应后台的一级菜单。</p>
+<div class="mods">
+<div><strong>多渠道接入</strong><span>网站、APP、微信生态、小程序统一接入。对应三方接入、社交平台接入。</span></div>
+<div><strong>坐席管理</strong><span>坐席账号、权限、分组、排班与绩效。对应人员管理、考勤排班，排班是另外三家没有的。</span></div>
+<div><strong>AI 接待与分析</strong><span>语义理解、多轮对话，会话自动分析、意图识别。首页单列 AI 接待数。</span></div>
+<div><strong>接待工作台</strong><span>统一接待，快捷回复、话术推荐、客户资料实时同步。对应客服工作台、话术库。</span></div>
+<div><strong>会话规则</strong><span>分配、转接、超时、结束规则可配置。对应会话设置。</span></div>
+<div><strong>客户数据</strong><span>标签、画像，历史会话和服务记录归档。对应客户管理。</span></div>
+<div><strong>工单</strong><span>创建、流转、协同到回访，闭环管理。对应工单中心。</span></div>
+<div><strong>对话质检</strong><span>AI 自动质检和评分。对应客服质检。</span></div>
+<div><strong>统计分析</strong><span>会话量、响应时长、满意度。首页另有排队、排队失效、实际接入率。</span></div>
+<div><strong>推送任务</strong><span><i class="guess">推断</i>套餐图没提。从菜单名看是群发或回访，没展开。</span></div>
+<div><strong>智能外呼</strong><span>不在这个应用里，官网单列的另一个产品。</span></div>
+</div>
+<h2 id="redbear-渠道">渠道</h2>
+<p>三方接入页里都标着已接入：<strong>网页</strong>（代码嵌进网站）；<strong>微信生态</strong>：企业微信（自建应用，消息多端同步）、视频号、订阅号、服务号、小程序（SDK、授权、密钥三种接入）、微信小店；<strong>本地生活</strong>：美团；<strong>电商平台</strong>：截图截断，至少还有 3 个。</p>
+<p>抖音、小红书、快手不在这一页，应该在「社交平台接入」菜单里，这次没截到。</p>
+<h2 id="redbear-价格">价格</h2>
+<p>三档功能完全一致，差别只在坐席、AI 次数和资源。完整的表见上方对比。专业版 ¥10,000：1 个坐席、30,000 次 AI 对话/年；企业版 ¥30,000：10 个坐席、50,000 次；旗舰版 ¥50,000：20 个坐席、100,000 次，含 CRM。</p>
+<p>AI 次数是整年总量，到期清零，不结转、不折现，摊到每月约 2,500 次。企业版多花两万，主要买的是 9 个坐席。专业版最多增购 2 个账号，增购单价没给。</p>
+<p>还空着：「次」怎么算；资源表第四行名称被挡住；抖音、小红书能不能接；电商平台是哪几家。</p>
+</article>
+</section>
 </div>
 </div>
+<script>
+(function () {
+  var links = document.querySelectorAll('.nav a[href^="#"]');
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  var sections = Object.keys(map).map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  function update() {
+    var y = window.scrollY + 100;
+    var current = sections[0];
+    sections.forEach(function (s) { if (s.offsetTop <= y) current = s; });
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) current = sections[sections.length - 1];
+    links.forEach(function (a) { a.classList.toggle('active', a === map[current.id]); });
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
 </body>
 </html>
